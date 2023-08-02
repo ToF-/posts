@@ -3,9 +3,9 @@ layout: post
 title: "Coding Katas and Problem Solving"
 categories: Programming
 tags: code
-date: 24-08-2020
 ---
 # Coding Katas and Problem Solving
+_2020-08-24_
 
 For years I have been practicing around coding katas at the Developers Dojo in Paris. What I like about coding katas in the context of a programming Dojo is that these exercises are generally based on simple, well-defined problems that are easy to explore. In that way, they present us with an opportunity to improve our _problem solving_ skills as well as our coding skills. 
 

@@ -3,9 +3,9 @@ layout: post
 title: "The Bowling Score Kata"
 categories: Programming
 tags: code forth
-date: 12-09-2020
 ---
 # The Bowling Score Kata
+_2020-09-12_
 
 As I am currently rereading [Leo Brodie's Thinking Forth](https://www.goodreads.com/book/show/2047737.Thinking_Forth?from_search=true&from_srp=true&qid=zZyppk8KWL&rank=1), I am amazed about how most of the program design tips in this 1984 book are still relevant today. The author's first book, [Starting Forth](https://www.goodreads.com/book/show/34007758-starting-forth?from_search=true&from_srp=true&qid=ShzB94AW1y&rank=2) initiated a life-long love story with programming for me, and Forth is still one of my favorite languages. In this post I will try to convey a sense of the Forth philosophy while solving the popular *Bowling Score Kata* using [gforth](https://gforth.org/). Although doing TDD in Forth is very easy, I choose to not include the tests in this post in order to keep it short.
 

@@ -3,9 +3,9 @@ layout: post
 title: "What Problem Are You Solving Together?"
 categories: Coaching
 tags: coaching
-date: 22-07-2020
 ---
 # What Problem Are You Solving Together?
+_2020-07-22_
 
 _”What problem are you solving together ?”_ is by far my preferred question at work, and probably the most powerful, too. It can be quite incisive, if the reactions it creates are any measure:
 

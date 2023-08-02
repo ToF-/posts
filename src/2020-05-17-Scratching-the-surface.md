@@ -3,9 +3,9 @@ layout: post
 title: "Scratching the surface of Monad Transformers"
 categories: Programming
 tags: code haskell
-date: 22-05-2020
 ---
 # Scratching the surface of Monad Transformers
+_2020-05-22_
 
 ![combo](/images/design.png)
 

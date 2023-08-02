@@ -3,9 +3,10 @@ layout: post
 title: "The Diamond Kata: a mix of TDD and PBT"
 categories: Programming
 tags: code haskell
-date: 18-03-2020
 ---
 # The Diamond Kata: a mix of TDD and PBT
+
+_d023-03-18_
 
 In this post I show an example of solving a coding kata the TDD way, while writing "property based testing" checks with QuickCheck.
 <!--more-->
