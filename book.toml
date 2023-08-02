@@ -1,0 +1,7 @@
+[book]
+authors = ["Christophe Thibaut"]
+language = "en"
+multilingual = false
+src = "src"
+title = "ToF's Blog"
+[preprocessor.frontmatter]
