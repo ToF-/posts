@@ -1,0 +1,709 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Diamond Kata: a mix of TDD and PBT - ToF&#x27;s Blog</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Dette Technique</li><li class="chapter-item expanded "><a href="2023-03-11-DT-1.html"><strong aria-hidden="true">1.</strong> La Dette Technique, qu'est-ce que c'est ?</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-2.html"><strong aria-hidden="true">2.</strong> Chiffrer la Dette ?</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-3.html"><strong aria-hidden="true">3.</strong> Une Traduction Incohérente</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-4.html"><strong aria-hidden="true">4.</strong> Au Cœur du Processus</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-5.html"><strong aria-hidden="true">5.</strong> Le Rôle du Management</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-6.html"><strong aria-hidden="true">6.</strong> Un État de l'Art Désaligné</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-7.html"><strong aria-hidden="true">7.</strong> Pratiques de Prévention</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-8.html"><strong aria-hidden="true">8.</strong> Le Rôle du Product Owner</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-9.html"><strong aria-hidden="true">9.</strong> Un Levier de Vitesse</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-10.html"><strong aria-hidden="true">10.</strong> Retour d'Information</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-11.html"><strong aria-hidden="true">11.</strong> Une Facture Imaginaire</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-12.html"><strong aria-hidden="true">12.</strong> Mission Failed ?</a></li><li class="chapter-item expanded affix "><li class="part-title">Cohérence</li><li class="chapter-item expanded "><a href="2023-03-12-CO-0.html"><strong aria-hidden="true">13.</strong> Quel Problème Essayons Nous de Résoudre Ensemble ?</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-1.html"><strong aria-hidden="true">14.</strong> À la Recherche de la Cohérence</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-2.html"><strong aria-hidden="true">15.</strong> 3 Sources sur la Dette Technique</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-3.html"><strong aria-hidden="true">16.</strong> Déspécialiser</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-4.html"><strong aria-hidden="true">17.</strong> État de l'Art et Cohérence</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-5.html"><strong aria-hidden="true">18.</strong> Outillage</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-6.html"><strong aria-hidden="true">19.</strong> État de l'Art, Cohérence et Dette Technique</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-7.html"><strong aria-hidden="true">20.</strong> Cohérence Perdue</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-8.html"><strong aria-hidden="true">21.</strong> Métaphores</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-9.html"><strong aria-hidden="true">22.</strong> Factory</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-10.html"><strong aria-hidden="true">23.</strong> Conversations, Observations</a></li><li class="chapter-item expanded affix "><li class="part-title">Sortir des Ronces</li><li class="chapter-item expanded "><a href="2023-03-18-OW-0.html"><strong aria-hidden="true">24.</strong> Contre-Effet de Levier</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-1.html"><strong aria-hidden="true">25.</strong> Qualité, Coûts, Délais</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-2.html"><strong aria-hidden="true">26.</strong> Sortir des Ronces</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-3.html"><strong aria-hidden="true">27.</strong> Prérequis</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-4.html"><strong aria-hidden="true">28.</strong> Pro Tips</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-5.html"><strong aria-hidden="true">29.</strong> Construction de Théorie</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-6.html"><strong aria-hidden="true">30.</strong> Lit de Procuste</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-7.html"><strong aria-hidden="true">31.</strong> Boule de Cristal</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-8.html"><strong aria-hidden="true">32.</strong> Crise de Croissance</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-9.html"><strong aria-hidden="true">33.</strong> Sens Partagé</a></li><li class="chapter-item expanded affix "><li class="part-title">Product Owning</li><li class="chapter-item expanded "><a href="2023-04-01-PO-0.html"><strong aria-hidden="true">34.</strong> Nouveau! 📯</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-1.html"><strong aria-hidden="true">35.</strong> Jonglerie</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-2.html"><strong aria-hidden="true">36.</strong> conflit d'idées</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-3.html"><strong aria-hidden="true">37.</strong> Zombies</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-4.html"><strong aria-hidden="true">38.</strong> 🏷 Patterns et Conflits ⚔️</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-5.html"><strong aria-hidden="true">39.</strong> Horizons Bouchés, Nuages de Conflits</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-6.html"><strong aria-hidden="true">40.</strong> Expressions de Besoins</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-7.html"><strong aria-hidden="true">41.</strong> Examiner des conflits 🪑 🕳 🔦</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-8.html"><strong aria-hidden="true">42.</strong> Scrum à la Rescousse 🕳 🚑</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-9.html"><strong aria-hidden="true">43.</strong> Ce n'est pas une question de rôle</a></li><li class="chapter-item expanded affix "><li class="part-title">Plateaux</li><li class="chapter-item expanded "><a href="2023-04-02-PL-1.html"><strong aria-hidden="true">44.</strong> Le Projet de Dorian Gray</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-2.html"><strong aria-hidden="true">45.</strong> L'idéal ?</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-3.html"><strong aria-hidden="true">46.</strong> Fatalités ?</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-4.html"><strong aria-hidden="true">47.</strong> Ralentir : Crise</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-5.html"><strong aria-hidden="true">48.</strong> Nouveaux Plateaux 🌄</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-6.html"><strong aria-hidden="true">49.</strong> Sens Partagé</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-7.html"><strong aria-hidden="true">50.</strong> État de l'Art</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-8.html"><strong aria-hidden="true">51.</strong> Plateformes</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-9.html"><strong aria-hidden="true">52.</strong> Amélioration Continue</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-10.html"><strong aria-hidden="true">53.</strong> Engagements</a></li><li class="chapter-item expanded affix "><li class="part-title">Producteurs</li><li class="chapter-item expanded "><a href="2023-04-16-PR-1.html"><strong aria-hidden="true">54.</strong> Cavalcade</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-2.html"><strong aria-hidden="true">55.</strong> Travailler tard avant d'être remplacé</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-3.html"><strong aria-hidden="true">56.</strong> J'ai un mystère</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-4.html"><strong aria-hidden="true">57.</strong> Producteurs de Code</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-5.html"><strong aria-hidden="true">58.</strong> Software Factory</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-6.html"><strong aria-hidden="true">59.</strong> Etat de l'Art et Nouveauté</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-7.html"><strong aria-hidden="true">60.</strong> Nouvelles Conversations</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-8.html"><strong aria-hidden="true">61.</strong> Productivité</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-9.html"><strong aria-hidden="true">62.</strong> Amélioration Continue</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-10.html"><strong aria-hidden="true">63.</strong> Soirée Meetup</a></li><li class="chapter-item expanded affix "><li class="part-title">Régulation</li><li class="chapter-item expanded "><a href="2023-04-29-RE-1.html"><strong aria-hidden="true">64.</strong> Interactions</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-2.html"><strong aria-hidden="true">65.</strong> Prévenir &gt; Guérir</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-3.html"><strong aria-hidden="true">66.</strong> Crash Fatal</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-4.html"><strong aria-hidden="true">67.</strong> Cliquets</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-5.html"><strong aria-hidden="true">68.</strong> Mégapole</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-6.html"><strong aria-hidden="true">69.</strong> Des usines et du sable</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-7.html"><strong aria-hidden="true">70.</strong> Apprendre et s'adapter</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-8.html"><strong aria-hidden="true">71.</strong> Sprints à Rallonges</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-9.html"><strong aria-hidden="true">72.</strong> Mon Indicateur de Productivité</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-10.html"><strong aria-hidden="true">73.</strong> Résolution</a></li><li class="chapter-item expanded affix "><li class="part-title">Prévention</li><li class="chapter-item expanded "><a href="2023-05-01-PV-0.html"><strong aria-hidden="true">74.</strong> Quizz</a></li><li class="chapter-item expanded "><a href="2023-05-02-PV-1.html"><strong aria-hidden="true">75.</strong> Provisions</a></li><li class="chapter-item expanded "><a href="2023-05-03-PV-2.html"><strong aria-hidden="true">76.</strong> Double Boucle</a></li><li class="chapter-item expanded "><a href="2023-05-04-PV-3.html"><strong aria-hidden="true">77.</strong> Le Standard</a></li><li class="chapter-item expanded "><a href="2023-05-05-PV-4.html"><strong aria-hidden="true">78.</strong> Breakpoints</a></li><li class="chapter-item expanded "><a href="2023-05-08-PV-5.html"><strong aria-hidden="true">79.</strong> Couloirs</a></li><li class="chapter-item expanded "><a href="2023-05-09-PV-6.html"><strong aria-hidden="true">80.</strong> Détrompeurs</a></li><li class="chapter-item expanded "><a href="2023-05-10-PV-7.html"><strong aria-hidden="true">81.</strong> Patinette</a></li><li class="chapter-item expanded "><a href="2023-05-11-PV-8.html"><strong aria-hidden="true">82.</strong> Rollers et Scooters</a></li><li class="chapter-item expanded "><a href="2023-05-12-PV-9.html"><strong aria-hidden="true">83.</strong> Artisanat</a></li><li class="chapter-item expanded affix "><li class="part-title">Standard</li><li class="chapter-item expanded "><a href="2023-05-15-ST-0.html"><strong aria-hidden="true">84.</strong> Revue et Standard</a></li><li class="chapter-item expanded "><a href="2023-05-16-ST-1.html"><strong aria-hidden="true">85.</strong> Sicob</a></li><li class="chapter-item expanded "><a href="2023-05-17-ST-2.html"><strong aria-hidden="true">86.</strong> Commentaires</a></li><li class="chapter-item expanded "><a href="2023-05-18-ST-3.html"><strong aria-hidden="true">87.</strong> Quinconce</a></li><li class="chapter-item expanded "><a href="2023-05-22-ST-4.html"><strong aria-hidden="true">88.</strong> Plus Moins Intéressant</a></li><li class="chapter-item expanded "><a href="2023-05-23-ST-5.html"><strong aria-hidden="true">89.</strong> Recadrage</a></li><li class="chapter-item expanded "><a href="2023-05-24-ST-6.html"><strong aria-hidden="true">90.</strong> Foire Aux Questions</a></li><li class="chapter-item expanded "><a href="2023-05-25-ST-7.html"><strong aria-hidden="true">91.</strong> Auto-Prescription</a></li><li class="chapter-item expanded affix "><li class="part-title">Transmission</li><li class="chapter-item expanded "><a href="2023-05-29-TR-0.html"><strong aria-hidden="true">92.</strong> Transmission</a></li><li class="chapter-item expanded "><a href="2023-05-30-TR-1.html"><strong aria-hidden="true">93.</strong> Bras de Mer et Bras-Cassés</a></li><li class="chapter-item expanded "><a href="2023-06-03-TR-2.html"><strong aria-hidden="true">94.</strong> Où apprendre et s'améliorer ?</a></li><li class="chapter-item expanded "><a href="2023-06-05-TR-3.html"><strong aria-hidden="true">95.</strong> Transmissions</a></li><li class="chapter-item expanded "><a href="2023-06-07-TR-4.html"><strong aria-hidden="true">96.</strong> Auto-Formation</a></li><li class="chapter-item expanded "><a href="2023-06-07-TR-5.html"><strong aria-hidden="true">97.</strong> Apprentissage, Performance</a></li><li class="chapter-item expanded affix "><li class="part-title">Systèmes</li><li class="chapter-item expanded "><a href="2023-06-26-SY-0.html"><strong aria-hidden="true">98.</strong> Diagrammes et Modèles 1</a></li><li class="chapter-item expanded "><a href="2023-06-27-SY-1.html"><strong aria-hidden="true">99.</strong> Diagrammes et Modèles 2</a></li><li class="chapter-item expanded "><a href="2023-06-28-SY-2.html"><strong aria-hidden="true">100.</strong> Diagrammes et Modèles 3</a></li><li class="chapter-item expanded "><a href="2023-06-29-SY-3.html"><strong aria-hidden="true">101.</strong> Diagrammes et Modèles 4</a></li><li class="chapter-item expanded "><a href="2023-06-30-SY-4.html"><strong aria-hidden="true">102.</strong> Diagrammes et Modèles 5</a></li><li class="chapter-item expanded "><a href="2023-07-03-SY-5.html"><strong aria-hidden="true">103.</strong> Diagrammes et Modèles 6</a></li><li class="chapter-item expanded "><a href="2023-07-04-SY-6.html"><strong aria-hidden="true">104.</strong> Diagrammes et Modèles 7</a></li><li class="chapter-item expanded "><a href="2023-07-05-SY-7.html"><strong aria-hidden="true">105.</strong> Diagrammes et Modèles 8</a></li><li class="chapter-item expanded "><a href="2023-07-06-SY-8.html"><strong aria-hidden="true">106.</strong> Diagrammes et Modèles 9</a></li><li class="chapter-item expanded "><a href="2023-07-09-SY-9.html"><strong aria-hidden="true">107.</strong> Diagrammes et Modèles 10</a></li><li class="chapter-item expanded affix "><li class="part-title">Code</li><li class="chapter-item expanded "><a href="2020-03-11-Diamond-Kata-PBT-TDD.html" class="active"><strong aria-hidden="true">108.</strong> The Diamond Kata: a mix of TDD and PBT</a></li><li class="chapter-item expanded "><a href="2020-05-17-Scratching-the-surface.html"><strong aria-hidden="true">109.</strong> Scratching the surface of Monad Transformers</a></li><li class="chapter-item expanded "><a href="2020-07-22-What-Problem-Are-You-Solving-Together.html"><strong aria-hidden="true">110.</strong> What Problem Are You Solving Together?</a></li><li class="chapter-item expanded "><a href="2020-08-24-Coding-Katas-And-Problem-Solving.html"><strong aria-hidden="true">111.</strong> Coding Katas and Problem Solving</a></li><li class="chapter-item expanded "><a href="2020-09-11-Forth-Bowling-Score.html"><strong aria-hidden="true">112.</strong> The Bowling Score Kata</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">ToF&#x27;s Blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="the-diamond-kata-a-mix-of-tdd-and-pbt"><a class="header" href="#the-diamond-kata-a-mix-of-tdd-and-pbt">The Diamond Kata: a mix of TDD and PBT</a></h1>
+<p>In this post I show an example of solving a coding kata the TDD way, while writing &quot;property based testing&quot; checks with QuickCheck.</p>
+<!--more-->
+<h2 id="1-lets-print-diamonds"><a class="header" href="#1-lets-print-diamonds">1: Let's print diamonds</a></h2>
+<p>The diamond kata is a well known exercise. Here's a description copied from <a href="http://codingdojo.org/kata/Diamond/">codingdojo.org</a></p>
+<blockquote>
+<p>Given a letter print a diamond starting with 'A' with the supplied letter at the widest point.</p>
+</blockquote>
+<p>The program, given the parameters A, C, and E respectively, should print the following patterns:</p>
+<pre><code>A     A          A
+     B B        B B
+    C   C      C   C
+     B B      D     D
+      A      E       E
+              D     D
+               C   C
+                B B
+                 A
+</code></pre>
+<p>I want to rely on two heuristic while writing such a program:</p>
+<ol>
+<li><strong>Test Driven Development</strong>:</li>
+</ol>
+<ul>
+<li>Write a test and make sure it is failing</li>
+<li>Write the simplest code that will make the test pass</li>
+<li>Refactor</li>
+</ul>
+<ol start="2">
+<li><strong>Property Based Testing</strong>:</li>
+</ol>
+<ul>
+<li>Define properties that should hold about the program's behavior</li>
+<li>Check the properties using generated data sets the program should be tested against</li>
+<li>Diagnose test failures and fix defects found in the program</li>
+</ul>
+<h3 id="properties-todo-list"><a class="header" href="#properties-todo-list">Properties Todo List</a></h3>
+<p><img src="/images/diamondkata.png" alt="diamond" />{:height=&quot;250px&quot; width=&quot;250px&quot;}</p>
+<p>Looking at the diamond examples above, we can find interesting properties about the program's output. </p>
+<p>Given <em>N</em> the position of the (argument) letter in the alphabet,</p>
+<p>| <strong>The upper left corner of the pattern is filled with a diagonal formed by the letters A,B,C etc. The letter A is in position <em>N</em> (starting from 1), B in position <em>N-1</em>, C, in position <em>N-2</em>, and so on.</strong> |
+| <strong>The pattern has horizontal symmetry, which means that flipping it horizontally yields the initial pattern.</strong> |
+| <strong>The pattern also has vertical symmetry.</strong> |
+| <strong>The height of the diamond is <em>2N-1</em>.</strong> |
+| <strong>The maximum width of the diamond equals its height, also <em>2N-1</em>.</strong> |</p>
+<p>I want to write a program that satisfies these properties, starting with the one that is the easiest, and then adding new properties one after the other.</p>
+<h2 id="2-stating-a-first-property-with-quickcheck"><a class="header" href="#2-stating-a-first-property-with-quickcheck">2: Stating a first property with QuickCheck</a></h2>
+<p>Let's create a test harness and put it in use with a first test.
+What is the simplest assertion we could hold true about a function <em>diamond</em> which given a letter, yields a pattern of chars in the shape of a diamond?</p>
+<p>Well, we could try this:</p>
+<p>|<strong>For any given letter, the pattern has a length of <em>2 * N - 1</em>, where N is the position of the letter in the alphabet.</strong> |</p>
+<pre><code class="language-haskell">-- Specs.hs
+import Test.QuickCheck
+import Diamond
+
+main = do
+    quickCheck prop_DiamondLengthEquals2NMinus1
+
+prop_DiamondLengthEquals2NMinus1 l =
+    length (diamond l) == 2 * n - 1
+        where
+            n = length ['A'..l]
+</code></pre>
+<p>We can force a test failure with this dummy implementation:</p>
+<pre><code class="language-haskell">-- Diamond.hs
+module Diamond
+where
+import Data.Char (ord)
+
+diamond _ = []
+</code></pre>
+<p>And sure enough, the test fail:</p>
+<pre><code>runhaskell Specs.hs ⏎
+*** Failed! Falsified (after 1 test and 1 shrink):
+'a'
+</code></pre>
+<p>To make it pass, we can <em>fake</em> the property by creating a list of empty strings having the right length:</p>
+<pre><code class="language-haskell">-- Diamond.hs
+module Diamond
+where
+import Data.Char (ord)
+
+diamond :: Char -&gt; [String]
+diamond l = replicate (2 * n - 1) &quot;&quot;
+    where n = length ['A'..l]
+</code></pre>
+<p>But our test still fails, and for a different reason:</p>
+<pre><code>runhaskell Specs.hs ⏎
+*** Failed! Falsified (after 3 tests and 1 shrink):
+'1'
+</code></pre>
+<p>This is because <code>length ['A'..'1']</code> = 0, and <code>replicate</code> used with a negative argument yields an empty list.
+The problem is that our test data set is too broad for the function under test, which is expected to work only with capital letters. To solve this, we will use a generator. The function</p>
+<pre><code class="language-haskell">choose :: System.Random.Random a =&gt; (a, a) -&gt; Gen a
+</code></pre>
+<p>will let us generate a char within the legal range for our program, which is <code>'A'</code> to <code>'Z'</code>. Then we can combine this generator with the <code>forAll</code> function so that the property get tested only with data from our generator:</p>
+<pre><code class="language-haskell">-- Specs.hs
+import Test.QuickCheck
+import Diamond
+
+letter = choose ('A','Z')
+main = do
+    quickCheck (forAll letter prop_DiamondLengthEquals2NMinus1)
+
+prop_DiamondLengthEquals2NMinus1 l =
+    length (diamond l) == 2 * n - 1
+        where
+            n = length ['A'..l]
+</code></pre>
+<pre><code>runhaskell Specs.hs ⏎
++++ OK, passed 100 tests.
+</code></pre>
+<p>Now that the test passes, we can refactor the test code for better clarity during execution:</p>
+<pre><code class="language-haskell">-- Specs.hs
+import Test.QuickCheck
+import Diamond
+
+letter = choose ('A','Z')
+
+check s p = do
+    putStr (&quot;\n&quot; ++ s ++ &quot;: &quot;)
+    quickCheck p
+
+main = do
+    check &quot;Diamond length equals 2N-1&quot;
+        (forAll letter prop_DiamondLengthEquals2NMinus1)
+
+prop_DiamondLengthEquals2NMinus1 l =
+    length (diamond l) == 2 * n - 1
+        where
+            n = length ['A'..l]
+</code></pre>
+<p>And the test results are a bit clearer:</p>
+<pre><code>runhaskell Specs.hs ⏎
+Diamond length equals 2N-1: +++ OK, passed 100 tests.
+</code></pre>
+<h2 id="3-checking-the-diamonds-diagonal"><a class="header" href="#3-checking-the-diamonds-diagonal">3: Checking the diamond's diagonal</a></h2>
+<p>Now we can maybe add some more important properties. Given <em>L</em>, the supplied letter:</p>
+<p>| <strong>The upper left corner of a the diamond should contain a diagonal formed by the letters A to <em>L</em>.</strong>|</p>
+<h3 id="fake-diagonal"><a class="header" href="#fake-diagonal">&quot;Fake&quot; diagonal</a></h3>
+<p>The first property is a bit complicated to write, as it involves comparing each cell in the diagonal to the letters from A to <em>L</em>. 
+For example, if the supplied letter is D, then the cells at positions (i.e. at row and column) {(0,3),(1,2),(2,1),(3,0)} should be filled with letters A, B, C, D.</p>
+<pre><code class="language-haskell">-- Specs.hs
+. . .
+main = do
+    check &quot;Diamond length equals 2N-1&quot;
+        (forAll letter prop_DiamondLengthEquals2NMinus1)
+
+    check &quot;Diamond contains a diagonal with letters A to l&quot;
+        (forAll letter prop_DiamondContainsDiagonal)
+. . .
+prop_DiamondContainsDiagonal l =
+    diagonal (diamond l) == letters
+        where
+            diagonal d = [d !! i !! (n-1-i) | i &lt;- [0..n-1]]
+            n = length letters
+            letters = ['A'..l]
+</code></pre>
+<p>Of course, the test fails, because the lines in the diamond are empty:</p>
+<pre><code>Diamond contains a diagonal with letters A to l:
+*** Failed! Exception: 'Prelude.!!: index too large' (after 1 test):
+'M'
+</code></pre>
+<p>We can &quot;convince&quot; our test that the property holds by filling the result with series of letters: </p>
+<ul>
+<li>the first <em>N</em> lines with be filled with strings of length <em>N</em>:  AAAA.., BBBB.., and so on, until <em>NNNN..</em></li>
+<li>the next <em>N - 1</em> lines will be produced the same way, only removing one, so that our first property still holds</li>
+</ul>
+<pre><code class="language-haskell">module Diamond
+where
+import Data.Char (ord)
+
+diamond :: Char -&gt; [String]
+diamond l = map (replicate n) (letters ++ (tail letters))
+    where n = length letters
+          letters = ['A'..l]
+</code></pre>
+<p>Of course, trying this program gives curious results:</p>
+<pre><code class="language-haskell">ghci Diamonds ⏎
+putStr $ unlines $ diamond 'D' ⏎
+AAAA
+BBBB
+CCCC
+DDDD
+BBBB
+CCCC
+DDDD
+</code></pre>
+<p>But we are getting closer to our final program.</p>
+<h3 id="spaces"><a class="header" href="#spaces">Spaces</a></h3>
+<p>It is true that <em>there is</em> a diagonal formed by the letters A,B,C in the shape above, only it's not really visible! We should now state something more about the output if we want it to conform to the visual result of a diamond:</p>
+<p>| <strong>Every cell of the corner that is not part of the diagonal contains a space.</strong>|</p>
+<p>In other words, given <em>N</em> the position of the supplied letter in the alphabet, for any coordinate <em>{ROW,COL}</em> within the corner, if <em>ROW</em> ≠ <em>N-1-COL</em> then the cell in that position should be a space.</p>
+<pre><code class="language-haskell">-- Specs.hs
+. . .
+main = do
+    check &quot;Diamond length equals 2N-1&quot;
+        (forAll letter prop_DiamondLengthEquals2NMinus1)
+
+    check &quot;Diamond contains a diagonal with letters A to l&quot;
+        (forAll letter prop_DiamondContainsDiagonal)
+
+    check &quot;Diamond contains spaces in non diagonal cells&quot;
+        (forAll letter prop_DiamondContainsSpaces)
+. . .
+prop_DiamondContainsSpaces l =
+    let n = length ['A'..l] in
+        forAll (choose (0,n-1)) $ \row -&gt;
+            forAll (choose (0,n-1)) $ \col -&gt;
+                (row /= (n-1-col)) == (diamond l !! row !! col == ' ')
+</code></pre>
+<p>Now we have to implement this diagonal and stop using fakes.</p>
+<p>Fortunately we can use the <code>tails</code> function which produces all the initial segments of a list:</p>
+<pre><code class="language-haskell">ghci ⏎
+import Data.List
+tails &quot;***&quot; ⏎
+[&quot;***&quot;,&quot;**&quot;,&quot;*&quot;,&quot;&quot;]
+</code></pre>
+<p>This, combined with <code>reverse</code> and <code>zipWith</code>, can help us create the desired pattern:</p>
+<pre><code class="language-haskell">let spacesAfter = reverse (tails &quot;   &quot;) ⏎
+zipWith (:) &quot;ABCD&quot; spacesAfter ⏎
+[&quot;A&quot;,&quot;B &quot;,&quot;C  &quot;,&quot;D   &quot;]
+let spacesBefore = tails &quot;   &quot; ⏎
+zipWith (++) spacesBefore $ zipWith (:) &quot;ABCD&quot; spacesAfter ⏎
+[&quot;   A&quot;,&quot;  B &quot;,&quot; C  &quot;,&quot;D   &quot;]
+
+</code></pre>
+<p>Let's put these discoveries into our <code>diamond</code> function:</p>
+<pre><code class="language-haskell">-- Diamond.hs
+module Diamond
+where
+import Data.Char (ord)
+import Data.List (tails)
+
+diamond :: Char -&gt; [String]
+diamond l = corner ++ tail corner
+    where corner = zipWith (++) 
+                        spacesBefore 
+                        (zipWith (:) letters spacesAfter)
+          spacesBefore = tails spaces
+          spacesAfter  = reverse spacesBefore
+          spaces = replicate (n-1) ' '
+          n = length letters
+          letters = ['A'..l]
+</code></pre>
+<p>And now all the test pass.
+Let's try our code:</p>
+<pre><code class="language-haskell">ghci Diamonds ⏎
+putStr $ unlines $ diamond 'D'
+   A
+  B
+ C
+D
+  B
+ C
+D
+</code></pre>
+<p>We are getting closer to the final result!</p>
+<h2 id="4-horizontal-symmetry"><a class="header" href="#4-horizontal-symmetry">4: Horizontal symmetry</a></h2>
+<p>Seeing this result helps us find the next property to test:</p>
+<p>| <strong>The diamond has horizontal symmetry: flipping it should yield the same result</strong> |</p>
+<pre><code class="language-haskell">-- Specs.hs
+. . .
+main = do
+    check &quot;Diamond length equals 2N-1&quot;
+        (forAll letter prop_DiamondLengthEquals2NMinus1)
+
+    check &quot;Diamond contains a diagonal with letters A to l&quot;
+        (forAll letter prop_DiamondContainsDiagonal)
+
+    check &quot;Diamond contains spaces in non diagonal cells&quot;
+        (forAll letter prop_DiamondContainsSpaces)
+
+    check &quot;Diamond has horizontal symmetry&quot;
+        (forAll letter prop_HorizontalSymmetry)
+
+. . .
+prop_HorizontalSymmetry l =
+        diamond l == reverse (diamond l)
+</code></pre>
+<p>The functions <code>tail</code> and <code>reverse</code> are our allied here:</p>
+<pre><code class="language-haskell">-- Diamond.hs
+module Diamond
+where
+import Data.Char (ord)
+import Data.List (tails)
+
+diamond :: Char -&gt; [String]
+diamond l = corner ++ tail (reverse corner)
+    where corner = zipWith (++) 
+                        spacesBefore 
+                        (zipWith (:) letters spacesAfter)
+          spacesBefore = tails spaces
+          spacesAfter  = reverse spacesBefore
+          spaces = replicate (n-1) ' '
+          n = length letters
+          letters = ['A'..l]
+</code></pre>
+<p>A look at the result so far:</p>
+<pre><code class="language-haskell">ghci Diamonds ⏎
+putStr $ unlines $ diamond 'D' ⏎
+   A
+  B
+ C
+D
+ C
+  B
+   A
+</code></pre>
+<h2 id="5-vertical-symmetry"><a class="header" href="#5-vertical-symmetry">5: Vertical symmetry</a></h2>
+<p>We are almost done! Here's a new property:</p>
+<p>| <strong>The diamond has vertical symmetry: flipping all of its lines should yield the same result</strong> |</p>
+<pre><code class="language-haskell">-- Specs.hs
+. . .
+main = do
+    check &quot;Diamond length equals 2N-1&quot;
+        (forAll letter prop_DiamondLengthEquals2NMinus1)
+
+    check &quot;Diamond contains a diagonal with letters A to l&quot;
+        (forAll letter prop_DiamondContainsDiagonal)
+
+    check &quot;Diamond contains spaces in non diagonal cells&quot;
+        (forAll letter prop_DiamondContainsSpaces)
+
+    check &quot;Diamond has horizontal symmetry&quot;
+        (forAll letter prop_HorizontalSymmetry)
+
+    check &quot;Diamond has vertical symmetry&quot;
+        (forAll letter prop_VerticalSymmetry)
+
+. . .
+prop_VerticalSymmetry l =
+        diamond l == map reverse (diamond l)
+</code></pre>
+<p>To make this test pass, we need to <em>mirror</em> each line of the corner containing the diagonal, i.e. to concatenate it with its reverse:</p>
+<pre><code class="language-haskell">-- Diamond.hs
+module Diamond
+where
+import Data.Char (ord)
+import Data.List (tails)
+
+diamond :: Char -&gt; [String]
+diamond l = half ++ tail (reverse half)
+    where half = map mirror corner
+          mirror s = s ++ reverse s
+          corner = zipWith (++) 
+                        spacesBefore 
+                        (zipWith (:) letters spacesAfter)
+          spacesBefore = tails spaces
+          spacesAfter  = reverse spacesBefore
+          spaces = replicate (n-1) ' '
+          n = length letters
+          letters = ['A'..l]
+</code></pre>
+<p>We are getting close, but there is still a property that we should add, as is visible in this trial:</p>
+<pre><code class="language-haskell">ghci Diamonds ⏎
+putStr $ unlines $ diamond 'D' ⏎
+   AA
+  B  B
+ C    C
+D      D
+ C    C
+  B  B
+   AA
+</code></pre>
+<h3 id="6-diamond-width"><a class="header" href="#6-diamond-width">6: Diamond width</a></h3>
+<p>Let's make sure that:</p>
+<p>| <strong>The diamond's width equals <em>2N-1</em> where <em>N</em> is the position of the letter.</strong> |</p>
+<pre><code class="language-haskell">-- Specs.hs
+. . .
+main = do
+    check &quot;Diamond length equals 2N-1&quot;
+        (forAll letter prop_DiamondLengthEquals2NMinus1)
+
+    check &quot;Diamond contains a diagonal with letters A to l&quot;
+        (forAll letter prop_DiamondContainsDiagonal)
+
+    check &quot;Diamond contains spaces in non diagonal cells&quot;
+        (forAll letter prop_DiamondContainsSpaces)
+
+    check &quot;Diamond has horizontal symmetry&quot;
+        (forAll letter prop_HorizontalSymmetry)
+
+    check &quot;Diamond has vertical symmetry&quot;
+        (forAll letter prop_VerticalSymmetry)
+
+    check &quot;Diamond width equals 2N-1&quot;
+        (forAll letter prop_DiamondWidthEquals2NMinus1)
+. . .
+prop_DiamondWidthEquals2NMinus1 l =
+    maximum (map length (diamond l)) == 2 * n - 1
+        where
+            n = length ['A'..l]
+</code></pre>
+<p>Our <em>mirror</em> function should remove the first char of its argument:</p>
+<pre><code class="language-haskell">-- Diamond.hs
+module Diamond
+where
+import Data.Char (ord)
+import Data.List (tails)
+
+diamond :: Char -&gt; [String]
+diamond l = half ++ tail (reverse half)
+    where half = map mirror corner
+          mirror s = s ++ tail (reverse s)
+          corner = zipWith (++) 
+                        spacesBefore 
+                        (zipWith (:) letters spacesAfter)
+          spacesBefore = tails spaces
+          spacesAfter  = reverse spacesBefore
+          spaces = replicate (n-1) ' '
+          n = length letters
+          letters = ['A'..l]
+</code></pre>
+<p>And some refactoring can occur here, since both horizontal and vertical symmetry can be obtain by mirroring:</p>
+<pre><code class="language-haskell">-- Diamond.hs
+module Diamond
+where
+import Data.Char (ord)
+import Data.List (tails)
+
+diamond :: Char -&gt; [String]
+diamond l = mirror (map mirror corner)
+    where mirror s = s ++ tail (reverse s)
+          corner = zipWith (++) 
+                        spacesBefore 
+                        (zipWith (:) letters spacesAfter)
+          spacesBefore = tails spaces
+          spacesAfter  = reverse spacesBefore
+          spaces = replicate (n-1) ' '
+          n = length letters
+          letters = ['A'..l]
+</code></pre>
+<p>Et voilà! The diamond kata, built the TDD way with quickcheck.</p>
+<pre><code class="language-haskell">ghci Diamonds ⏎
+putStr $ unlines $ diamond 'Z' ⏎
+                         A
+                        B B
+                       C   C
+                      D     D
+                     E       E
+                    F         F
+                   G           G
+                  H             H
+                 I               I
+                J                 J
+               K                   K
+              L                     L
+             M                       M
+            N                         N
+           O                           O
+          P                             P
+         Q                               Q
+        R                                 R
+       S                                   S
+      T                                     T
+     U                                       U
+    V                                         V
+   W                                           W
+  X                                             X
+ Y                                               Y
+Z                                                 Z
+ Y                                               Y
+  X                                             X
+   W                                           W
+    V                                         V
+     U                                       U
+      T                                     T
+       S                                   S
+        R                                 R
+         Q                               Q
+          P                             P
+           O                           O
+            N                         N
+             M                       M
+              L                     L
+               K                   K
+                J                 J
+                 I               I
+                  H             H
+                   G           G
+                    F         F
+                     E       E
+                      D     D
+                       C   C
+                        B B
+                         A
+</code></pre>
+<div class="datetime" style="text-align: center; color: gray; font-style: italic; font-size: 90%;">Unknown date format</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2023-07-09-SY-9.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="2020-05-17-Scratching-the-surface.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="2023-07-09-SY-9.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="2020-05-17-Scratching-the-surface.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

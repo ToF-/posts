@@ -1,0 +1,814 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Scratching the surface of Monad Transformers - ToF&#x27;s Blog</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Dette Technique</li><li class="chapter-item expanded "><a href="2023-03-11-DT-1.html"><strong aria-hidden="true">1.</strong> La Dette Technique, qu'est-ce que c'est ?</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-2.html"><strong aria-hidden="true">2.</strong> Chiffrer la Dette ?</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-3.html"><strong aria-hidden="true">3.</strong> Une Traduction Incohérente</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-4.html"><strong aria-hidden="true">4.</strong> Au Cœur du Processus</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-5.html"><strong aria-hidden="true">5.</strong> Le Rôle du Management</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-6.html"><strong aria-hidden="true">6.</strong> Un État de l'Art Désaligné</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-7.html"><strong aria-hidden="true">7.</strong> Pratiques de Prévention</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-8.html"><strong aria-hidden="true">8.</strong> Le Rôle du Product Owner</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-9.html"><strong aria-hidden="true">9.</strong> Un Levier de Vitesse</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-10.html"><strong aria-hidden="true">10.</strong> Retour d'Information</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-11.html"><strong aria-hidden="true">11.</strong> Une Facture Imaginaire</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-12.html"><strong aria-hidden="true">12.</strong> Mission Failed ?</a></li><li class="chapter-item expanded affix "><li class="part-title">Cohérence</li><li class="chapter-item expanded "><a href="2023-03-12-CO-0.html"><strong aria-hidden="true">13.</strong> Quel Problème Essayons Nous de Résoudre Ensemble ?</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-1.html"><strong aria-hidden="true">14.</strong> À la Recherche de la Cohérence</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-2.html"><strong aria-hidden="true">15.</strong> 3 Sources sur la Dette Technique</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-3.html"><strong aria-hidden="true">16.</strong> Déspécialiser</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-4.html"><strong aria-hidden="true">17.</strong> État de l'Art et Cohérence</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-5.html"><strong aria-hidden="true">18.</strong> Outillage</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-6.html"><strong aria-hidden="true">19.</strong> État de l'Art, Cohérence et Dette Technique</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-7.html"><strong aria-hidden="true">20.</strong> Cohérence Perdue</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-8.html"><strong aria-hidden="true">21.</strong> Métaphores</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-9.html"><strong aria-hidden="true">22.</strong> Factory</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-10.html"><strong aria-hidden="true">23.</strong> Conversations, Observations</a></li><li class="chapter-item expanded affix "><li class="part-title">Sortir des Ronces</li><li class="chapter-item expanded "><a href="2023-03-18-OW-0.html"><strong aria-hidden="true">24.</strong> Contre-Effet de Levier</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-1.html"><strong aria-hidden="true">25.</strong> Qualité, Coûts, Délais</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-2.html"><strong aria-hidden="true">26.</strong> Sortir des Ronces</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-3.html"><strong aria-hidden="true">27.</strong> Prérequis</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-4.html"><strong aria-hidden="true">28.</strong> Pro Tips</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-5.html"><strong aria-hidden="true">29.</strong> Construction de Théorie</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-6.html"><strong aria-hidden="true">30.</strong> Lit de Procuste</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-7.html"><strong aria-hidden="true">31.</strong> Boule de Cristal</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-8.html"><strong aria-hidden="true">32.</strong> Crise de Croissance</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-9.html"><strong aria-hidden="true">33.</strong> Sens Partagé</a></li><li class="chapter-item expanded affix "><li class="part-title">Product Owning</li><li class="chapter-item expanded "><a href="2023-04-01-PO-0.html"><strong aria-hidden="true">34.</strong> Nouveau! 📯</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-1.html"><strong aria-hidden="true">35.</strong> Jonglerie</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-2.html"><strong aria-hidden="true">36.</strong> conflit d'idées</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-3.html"><strong aria-hidden="true">37.</strong> Zombies</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-4.html"><strong aria-hidden="true">38.</strong> 🏷 Patterns et Conflits ⚔️</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-5.html"><strong aria-hidden="true">39.</strong> Horizons Bouchés, Nuages de Conflits</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-6.html"><strong aria-hidden="true">40.</strong> Expressions de Besoins</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-7.html"><strong aria-hidden="true">41.</strong> Examiner des conflits 🪑 🕳 🔦</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-8.html"><strong aria-hidden="true">42.</strong> Scrum à la Rescousse 🕳 🚑</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-9.html"><strong aria-hidden="true">43.</strong> Ce n'est pas une question de rôle</a></li><li class="chapter-item expanded affix "><li class="part-title">Plateaux</li><li class="chapter-item expanded "><a href="2023-04-02-PL-1.html"><strong aria-hidden="true">44.</strong> Le Projet de Dorian Gray</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-2.html"><strong aria-hidden="true">45.</strong> L'idéal ?</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-3.html"><strong aria-hidden="true">46.</strong> Fatalités ?</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-4.html"><strong aria-hidden="true">47.</strong> Ralentir : Crise</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-5.html"><strong aria-hidden="true">48.</strong> Nouveaux Plateaux 🌄</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-6.html"><strong aria-hidden="true">49.</strong> Sens Partagé</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-7.html"><strong aria-hidden="true">50.</strong> État de l'Art</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-8.html"><strong aria-hidden="true">51.</strong> Plateformes</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-9.html"><strong aria-hidden="true">52.</strong> Amélioration Continue</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-10.html"><strong aria-hidden="true">53.</strong> Engagements</a></li><li class="chapter-item expanded affix "><li class="part-title">Producteurs</li><li class="chapter-item expanded "><a href="2023-04-16-PR-1.html"><strong aria-hidden="true">54.</strong> Cavalcade</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-2.html"><strong aria-hidden="true">55.</strong> Travailler tard avant d'être remplacé</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-3.html"><strong aria-hidden="true">56.</strong> J'ai un mystère</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-4.html"><strong aria-hidden="true">57.</strong> Producteurs de Code</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-5.html"><strong aria-hidden="true">58.</strong> Software Factory</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-6.html"><strong aria-hidden="true">59.</strong> Etat de l'Art et Nouveauté</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-7.html"><strong aria-hidden="true">60.</strong> Nouvelles Conversations</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-8.html"><strong aria-hidden="true">61.</strong> Productivité</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-9.html"><strong aria-hidden="true">62.</strong> Amélioration Continue</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-10.html"><strong aria-hidden="true">63.</strong> Soirée Meetup</a></li><li class="chapter-item expanded affix "><li class="part-title">Régulation</li><li class="chapter-item expanded "><a href="2023-04-29-RE-1.html"><strong aria-hidden="true">64.</strong> Interactions</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-2.html"><strong aria-hidden="true">65.</strong> Prévenir &gt; Guérir</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-3.html"><strong aria-hidden="true">66.</strong> Crash Fatal</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-4.html"><strong aria-hidden="true">67.</strong> Cliquets</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-5.html"><strong aria-hidden="true">68.</strong> Mégapole</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-6.html"><strong aria-hidden="true">69.</strong> Des usines et du sable</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-7.html"><strong aria-hidden="true">70.</strong> Apprendre et s'adapter</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-8.html"><strong aria-hidden="true">71.</strong> Sprints à Rallonges</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-9.html"><strong aria-hidden="true">72.</strong> Mon Indicateur de Productivité</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-10.html"><strong aria-hidden="true">73.</strong> Résolution</a></li><li class="chapter-item expanded affix "><li class="part-title">Prévention</li><li class="chapter-item expanded "><a href="2023-05-01-PV-0.html"><strong aria-hidden="true">74.</strong> Quizz</a></li><li class="chapter-item expanded "><a href="2023-05-02-PV-1.html"><strong aria-hidden="true">75.</strong> Provisions</a></li><li class="chapter-item expanded "><a href="2023-05-03-PV-2.html"><strong aria-hidden="true">76.</strong> Double Boucle</a></li><li class="chapter-item expanded "><a href="2023-05-04-PV-3.html"><strong aria-hidden="true">77.</strong> Le Standard</a></li><li class="chapter-item expanded "><a href="2023-05-05-PV-4.html"><strong aria-hidden="true">78.</strong> Breakpoints</a></li><li class="chapter-item expanded "><a href="2023-05-08-PV-5.html"><strong aria-hidden="true">79.</strong> Couloirs</a></li><li class="chapter-item expanded "><a href="2023-05-09-PV-6.html"><strong aria-hidden="true">80.</strong> Détrompeurs</a></li><li class="chapter-item expanded "><a href="2023-05-10-PV-7.html"><strong aria-hidden="true">81.</strong> Patinette</a></li><li class="chapter-item expanded "><a href="2023-05-11-PV-8.html"><strong aria-hidden="true">82.</strong> Rollers et Scooters</a></li><li class="chapter-item expanded "><a href="2023-05-12-PV-9.html"><strong aria-hidden="true">83.</strong> Artisanat</a></li><li class="chapter-item expanded affix "><li class="part-title">Standard</li><li class="chapter-item expanded "><a href="2023-05-15-ST-0.html"><strong aria-hidden="true">84.</strong> Revue et Standard</a></li><li class="chapter-item expanded "><a href="2023-05-16-ST-1.html"><strong aria-hidden="true">85.</strong> Sicob</a></li><li class="chapter-item expanded "><a href="2023-05-17-ST-2.html"><strong aria-hidden="true">86.</strong> Commentaires</a></li><li class="chapter-item expanded "><a href="2023-05-18-ST-3.html"><strong aria-hidden="true">87.</strong> Quinconce</a></li><li class="chapter-item expanded "><a href="2023-05-22-ST-4.html"><strong aria-hidden="true">88.</strong> Plus Moins Intéressant</a></li><li class="chapter-item expanded "><a href="2023-05-23-ST-5.html"><strong aria-hidden="true">89.</strong> Recadrage</a></li><li class="chapter-item expanded "><a href="2023-05-24-ST-6.html"><strong aria-hidden="true">90.</strong> Foire Aux Questions</a></li><li class="chapter-item expanded "><a href="2023-05-25-ST-7.html"><strong aria-hidden="true">91.</strong> Auto-Prescription</a></li><li class="chapter-item expanded affix "><li class="part-title">Transmission</li><li class="chapter-item expanded "><a href="2023-05-29-TR-0.html"><strong aria-hidden="true">92.</strong> Transmission</a></li><li class="chapter-item expanded "><a href="2023-05-30-TR-1.html"><strong aria-hidden="true">93.</strong> Bras de Mer et Bras-Cassés</a></li><li class="chapter-item expanded "><a href="2023-06-03-TR-2.html"><strong aria-hidden="true">94.</strong> Où apprendre et s'améliorer ?</a></li><li class="chapter-item expanded "><a href="2023-06-05-TR-3.html"><strong aria-hidden="true">95.</strong> Transmissions</a></li><li class="chapter-item expanded "><a href="2023-06-07-TR-4.html"><strong aria-hidden="true">96.</strong> Auto-Formation</a></li><li class="chapter-item expanded "><a href="2023-06-07-TR-5.html"><strong aria-hidden="true">97.</strong> Apprentissage, Performance</a></li><li class="chapter-item expanded affix "><li class="part-title">Systèmes</li><li class="chapter-item expanded "><a href="2023-06-26-SY-0.html"><strong aria-hidden="true">98.</strong> Diagrammes et Modèles 1</a></li><li class="chapter-item expanded "><a href="2023-06-27-SY-1.html"><strong aria-hidden="true">99.</strong> Diagrammes et Modèles 2</a></li><li class="chapter-item expanded "><a href="2023-06-28-SY-2.html"><strong aria-hidden="true">100.</strong> Diagrammes et Modèles 3</a></li><li class="chapter-item expanded "><a href="2023-06-29-SY-3.html"><strong aria-hidden="true">101.</strong> Diagrammes et Modèles 4</a></li><li class="chapter-item expanded "><a href="2023-06-30-SY-4.html"><strong aria-hidden="true">102.</strong> Diagrammes et Modèles 5</a></li><li class="chapter-item expanded "><a href="2023-07-03-SY-5.html"><strong aria-hidden="true">103.</strong> Diagrammes et Modèles 6</a></li><li class="chapter-item expanded "><a href="2023-07-04-SY-6.html"><strong aria-hidden="true">104.</strong> Diagrammes et Modèles 7</a></li><li class="chapter-item expanded "><a href="2023-07-05-SY-7.html"><strong aria-hidden="true">105.</strong> Diagrammes et Modèles 8</a></li><li class="chapter-item expanded "><a href="2023-07-06-SY-8.html"><strong aria-hidden="true">106.</strong> Diagrammes et Modèles 9</a></li><li class="chapter-item expanded "><a href="2023-07-09-SY-9.html"><strong aria-hidden="true">107.</strong> Diagrammes et Modèles 10</a></li><li class="chapter-item expanded affix "><li class="part-title">Code</li><li class="chapter-item expanded "><a href="2020-03-11-Diamond-Kata-PBT-TDD.html"><strong aria-hidden="true">108.</strong> The Diamond Kata: a mix of TDD and PBT</a></li><li class="chapter-item expanded "><a href="2020-05-17-Scratching-the-surface.html" class="active"><strong aria-hidden="true">109.</strong> Scratching the surface of Monad Transformers</a></li><li class="chapter-item expanded "><a href="2020-07-22-What-Problem-Are-You-Solving-Together.html"><strong aria-hidden="true">110.</strong> What Problem Are You Solving Together?</a></li><li class="chapter-item expanded "><a href="2020-08-24-Coding-Katas-And-Problem-Solving.html"><strong aria-hidden="true">111.</strong> Coding Katas and Problem Solving</a></li><li class="chapter-item expanded "><a href="2020-09-11-Forth-Bowling-Score.html"><strong aria-hidden="true">112.</strong> The Bowling Score Kata</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">ToF&#x27;s Blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="scratching-the-surface-of-monad-transformers"><a class="header" href="#scratching-the-surface-of-monad-transformers">Scratching the surface of Monad Transformers</a></h1>
+<p><img src="/images/design.png" alt="combo" /></p>
+<p>Haskell makes it possible to write statically typed, purely functional programs. This gives us two interesting conveniences. The first one is that any incoherence in the type of our expressions and sequences can be spotted at compile time. The second one is that we can rule out the direct use of partial functions by wrapping their results in new data types and compose expressions with values of these types.</p>
+<!--more-->
+<p>However, when a program has to process IO (as any useful program will), static typing and purity might seem to get in the way for a beginner. We use the <code>IO</code> Monad to get <code>IO</code> values, and the <code>Either</code> Monad to deal with failures, but combining the two makes our programs cumbersome.</p>
+<p>Monad Transformers can help us write simpler programs, by hiding the boilerplate code that this combination requires.</p>
+<p>In this blog post I present how to chain monadic actions and controls with the <code>ExceptT</code> Monad Transformer in Haskell through a small example, in 4 steps:</p>
+<ul>
+<li>writing a naïve implementation, which halts on IO exception</li>
+<li>improving its robustness with conditionals and pattern matching</li>
+<li>combining <code>IO</code> and <code>Either</code> using <code>ExceptT</code></li>
+<li>refactoring the program's chaining of actions</li>
+</ul>
+<h2 id="program-1-a-naïve-solution"><a class="header" href="#program-1-a-naïve-solution">Program #1: A naïve solution</a></h2>
+<p>Let's say we want to write a program that reads a CSV file containing transactions, which are composed of a category and an amount, and prints the total spent for each category.</p>
+<p>For instance, given a file <code>transactions.csv</code> containing this data:</p>
+<pre><code>Groceries, 100.00
+Savings, 500.00
+Equipment, 32.00
+Groceries, 42.00
+Insurance, 38.17
+Groceries, 30.00
+Equipment, 179.00
+</code></pre>
+<p>the command <code>summary transactions.csv</code> will output this:</p>
+<pre><code>Equipment, 211.0
+Groceries, 172.0
+Insurance, 38.17
+Savings, 500.0
+</code></pre>
+<p>Our program will</p>
+<ul>
+<li>obtain the name of a file from the command line,</li>
+<li>read this file, splitting each line into <em>category</em> and <em>amount</em>, so as to create <em>transactions</em>,</li>
+<li>sort and group these <em>transactions</em> by <em>category</em>,</li>
+<li>sum these groups into <em>summary lines</em>,</li>
+<li>and finally print these lines.</li>
+</ul>
+<p>After importing some standard functions, we define adequate data types for our program, starting with <code>Category</code>.</p>
+<pre><code class="language-haskell">import System.Environment ( getArgs )
+import Data.List          ( groupBy
+                          , sortBy  )
+import Data.Function      ( on )
+
+data Category = Category { categoryLabel :: String }
+    deriving (Eq, Show)
+</code></pre>
+<h3 id="reading-categories"><a class="header" href="#reading-categories">Reading Categories</a></h3>
+<p>We need a way to <code>read</code> a <code>Category</code> from a <code>String</code>, so let's make this type an instance of the <code>Read</code> class. Parsing a category label amounts to reading alphanumeric chars, possibly some spaces, and rejecting everything else. For instance <code>&quot;Credit Cards Payments&quot;</code> and <code>&quot;Credit 1&quot;</code> can be used as a category label, while <code>&quot;Savings &amp; Investing&quot;</code> cannot.</p>
+<p><code>readsPrec</code> is the function that we need to implement. It has the signature</p>
+<pre><code class="language-haskell">Int -&gt; String -&gt; [(a,String)]
+</code></pre>
+<p>where the first argument is the precedence level (which we don't need to specify for our simple program), the second argument is the <code>String</code> to be parsed, and the result is a list of possible results. Returning an empty list means that the input string could not be parsed to a value of type <code>a</code>.</p>
+<pre><code class="language-haskell">instance Read Category where
+    readsPrec _ s = if not (null label)
+                       then return (Category label, rest)
+                       else []
+        where
+        label = takeWhile (isLegal) s
+        rest  = drop (length label) s
+        isLegal c = isAlphaNum c || c == ' '
+</code></pre>
+<p>The function takes all the legal characters in the input string <code>s</code>, and returns a <code>Category</code> value, coupled with the part of the input that remains to be parsed. Or it returns an empty list if no legal character was found at the beginning of the input string.</p>
+<p>Let's try to <code>read</code> a <code>Category</code> using <em>ghci</em>:</p>
+<pre><code class="language-haskell">$ ghci
+&gt; import Program1.hs
+&gt; read &quot;Foo&quot; :: Category
+Category &quot;Foo&quot;
+
+&gt; read &quot;*$!&quot; :: Category
+*** Exception: Prelude.read: no parse
+
+(reads :: ReadS Category) &quot;Bar, 42&quot;
+[(Category &quot;Bar&quot;,&quot;,42&quot;)]
+</code></pre>
+<h3 id="reading-transactions"><a class="header" href="#reading-transactions">Reading Transactions</a></h3>
+<p>A <code>Transaction</code> is composed with a <code>Category</code> and a <code>Double</code>. Since we want to <code>read</code> transactions, we need to implement <code>readsPrec</code> for this type as well.</p>
+<pre><code class="language-haskell">data Transaction = Transaction { transactionCategory :: Category
+                               , transactionAmount   :: Double }
+    deriving (Eq,Ord,Show)
+
+instance Read Transaction where
+    readsPrec _ line = do
+        (categ,  rest1) &lt;- reads line
+        (_,      rest2) &lt;- readComma rest1
+        (number, rest3) &lt;- reads rest2
+        return $ (Transaction categ number, rest3)
+            where
+            readComma :: ReadS String
+            readComma s = case lex s of
+                            ((&quot;,&quot;,r):_) -&gt; return (&quot;,&quot;,r)
+                            _           -&gt; []
+</code></pre>
+<p>This <code>readsPrec</code> is a bit more complicated than the first one: it is chaining computations on the list monad, reading first a <code>Category</code>, then a comma (and discarding it), then a <code>Double</code> value. Chaining these three parsers ensures that the evaluation will result in an empty list as soon as one of them returns an empty list.</p>
+<p>☞ <em>To illustrate the effect of failure in a chain of list actions try this expression in ghci:</em></p>
+<pre><code class="language-haskell">[1,2,3] &gt;&gt;= \n -&gt; [n,n*10,n*100] &gt;&gt;= \m -&gt; [m*m,m*m*m]
+</code></pre>
+<p><em>then try it again, replacing any of the three lists by the empty list.</em></p>
+<p>Trying our parser on <em>ghci</em>:</p>
+<pre><code class="language-haskell">$ ghci
+&gt; read &quot;Foo, 42&quot; :: Transaction
+Transaction {transactionCategory = Category &quot;Foo&quot;, transactionAmount = 42.0}
+
+&gt; read &quot;, 42&quot; :: Transaction
+*** Exception: Prelude.read: no parse
+
+&gt; read &quot;Bar, i42&quot; :: Transaction
+*** Exception: Prelude.read: no parse
+&gt;
+</code></pre>
+<h3 id="computing-summary-lines"><a class="header" href="#computing-summary-lines">Computing Summary Lines</a></h3>
+<p>Now for the summary: since a <em>summary line</em> has the exact same structure as a <em>transaction</em>, we choose to define it as a type synonym. Also we should be able to <code>display</code> summary lines.</p>
+<pre><code class="language-haskell">type SummaryLine = Transaction
+
+display :: SummaryLine -&gt; String
+display t = categoryLabel (transactionCategory t)
+           ++ &quot;, &quot; ++ show (transactionAmount t)
+</code></pre>
+<p>To <em>summarize</em> the transactions is to sort and group them by category, then for each group, create a <code>SummaryLine</code> with the category and total amount of the group:</p>
+<pre><code class="language-haskell">type SummaryLine = Transaction
+
+summarize :: [Transaction] -&gt; [SummaryLine]
+summarize = map summary
+          . groupBy ( (==)    `on` transactionCategory )
+          . sortBy  ( compare `on` transactionCategory )
+    where
+    summary :: [Transaction] -&gt; SummaryLine
+    summary txs = Transaction (category txs) (total txs)
+        where
+        category = transactionCategory . head
+        total    = sum . map transactionAmount
+</code></pre>
+<p>Note how <code>on</code> helps expressing the logic by composing the functions that are required by <code>sortBy</code> and <code>groupBy</code>.
+Since</p>
+<pre><code class="language-haskell">on :: (b -&gt; b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; a -&gt; c
+</code></pre>
+<p>then</p>
+<pre><code class="language-haskell">on compare :: (Ord b) =&gt; (a -&gt; b) -&gt; a -&gt; a -&gt; Ordering
+</code></pre>
+<p>and thus</p>
+<pre><code class="language-haskell">on compare transactionCategory :: Transaction -&gt; Transaction -&gt; Ordering
+</code></pre>
+<p>which is conform to the type of function required by <code>sortBy</code>. Similarly, <code>on</code> composed with <code>(==)</code> will create a function of the type required by <code>groupBy</code>.</p>
+<p>Reporting summary lines is done by mapping our <code>display</code> function for each line, and then merging this list of <code>String</code>s into one single <code>String</code>:</p>
+<pre><code class="language-haskell">report :: [SummaryLine] -&gt; String
+report = unlines . map display
+</code></pre>
+<h3 id="the-main-program"><a class="header" href="#the-main-program">The main program</a></h3>
+<p>We can now write our main function, which will get a file name on the command line, read that file, convert its content into a list of <code>Transaction</code>s, and then compute and print the summary.</p>
+<pre><code class="language-haskell">program1 :: IO ()
+program1 = do
+    args    &lt;- getArgs
+    content &lt;- readFile (head args)
+    let transactions = map read $ lines content
+    putStrLn $ report $ summarize transactions
+</code></pre>
+<p>And voilà, we have our program:</p>
+<pre><code>$ ghc --make program1.hs
+$ program1 transactions.csv
+Equipment, 211.0
+Groceries, 172.0
+Insurance, 38.17
+Savings, 500.0
+</code></pre>
+<p>It is, indeed, a very naïve program. Let's see what could go wrong:</p>
+<ul>
+<li>we could forget to specify a file name when lauching the program from the command line</li>
+<li>we could specify a file name that doesn't correspond to an existing file</li>
+<li>the file could contain data that can't be read as comma separated transaction values</li>
+<li>the file could be empty, in which case nothing would be output</li>
+</ul>
+<pre><code>$ program1
+program1: Prelude.head: empty list
+
+$ program1 foo
+program1: foo: openFile: does not exist (No such file or directory)
+
+$ program1 wrong.csv
+program1: Prelude.read: no parse
+
+$ program1 empty.csv
+
+</code></pre>
+<p>None of these conditions is adequately managed. This means that given certain inputs some of the functions will not return a value and the program will halt. Let's change this.</p>
+<h2 id="program-2-responding-to-failure-conditions"><a class="header" href="#program-2-responding-to-failure-conditions">Program #2: responding to failure conditions</a></h2>
+<h3 id="partial-and-total-functions"><a class="header" href="#partial-and-total-functions">Partial and total functions</a></h3>
+<p>We want to deal with failure conditions in a graceful way. Our program should not stop abruptly with a strange message like <em>&quot;empty list&quot;</em> or <em>&quot;no parse&quot;</em>. Instead it should print a clear diagnostic and possibly propose a way for the user to remedy the problem.</p>
+<p>What parts of the program should change? Well, every part where the program calls a function that is not <em>total</em>. A function is said to be total if it returns a value for each possible value of its argument.</p>
+<p>The function <code>head</code>, used in the expression <code>content &lt;- readFile (head args)</code> is not total and could halt the program with an <em>&quot;empty list&quot;</em> message.
+The function <code>read</code> is also partial: it will halt the program if the string it is supposed to convert into a value is not correct.</p>
+<p>On the other hand, the function:</p>
+<pre><code class="language-haskell">lookup :: Eq a =&gt; a -&gt; [(a, b)] -&gt; Maybe b
+</code></pre>
+<p><em>is</em> an example of a total function. It will not interrupt the program, for all possible values of type <code>a</code> and <code>b</code>.</p>
+<p>☞ <em><code>head</code> is used inside the function <code>summary</code> in the expression <code>transactionCategory . head</code>. Does it constitute a risk of halting the program in case we apply it on an empty list? Why?</em></p>
+<h3 id="a-data-type-to-represent-failure"><a class="header" href="#a-data-type-to-represent-failure">A data type to represent failure</a></h3>
+<p>If a function is not total, one safe way to use it is to combine it with a data type that can represent failure. The <code>Either</code> type constructor is designed just for such representations, and we will use it. To make things a bit clearer, let's first define a type synonym for the <code>String</code> used as messages.</p>
+<pre><code class="language-haskell">type Message = String
+</code></pre>
+<p>Our most frequent concern will be about the CSV file data format, so let's create a reader function that will manage faulty data in a graceful way:</p>
+<pre><code class="language-haskell">readTransaction :: String -&gt; Either Message Transaction
+readTransaction s =
+    case reads s of
+      []        -&gt; Left $ &quot;Error: incorrect CSV format : &quot; ++ s
+      ((t,_):_) -&gt; Right t
+</code></pre>
+<p>This reader calls the <code>reads</code> function (which in turn calls the <code>readSprec</code> that we defined earlier) and wraps the result into an <code>Either</code> context.</p>
+<p>Parsing <em>several</em> transactions from a <code>String</code> is a matter of applying <code>readTransaction</code> to each line of the argument. This is done with <code>mapM</code>:</p>
+<pre><code class="language-haskell">mapM :: (Traversable t, Monad m) =&gt; (a -&gt; m b) -&gt; t a -&gt; m (t b)
+</code></pre>
+<p>The function is used to chain a monadic action to the elements of a structure and return a single monadic value. Here, it transposes a <code>[Either Message Transaction]</code> into an <code>Either Message [Transaction]</code>.</p>
+<pre><code class="language-haskell">readTransactions :: String -&gt; Either Message [Transaction]
+readTransactions = mapM readTransaction . lines
+</code></pre>
+<p>Another failure possibility resides in getting the first argument on the command line: what if there is none? Let's wrap <code>getArgs :: IO [String]</code> into a <code>IO Either Message FilePath</code> to be on the safe side:</p>
+<pre><code class="language-haskell">getFileNameArg :: IO (Either Message FilePath)
+getFileNameArg = do
+    args &lt;- getArgs
+    return $ if null args
+                    then Left &quot;Error: no file name given&quot;
+                    else Right (args !! 0)
+</code></pre>
+<h3 id="dealing-with-io-exceptions"><a class="header" href="#dealing-with-io-exceptions">Dealing with IO Exceptions</a></h3>
+<p>What if the CSV file can't be open? Using <code>Control.Exception</code> will help us dealing with such a situation:</p>
+<pre><code class="language-haskell">getFileContent :: FilePath -&gt; IO (Either Message String)
+getFileContent fp = (fmap Right $ readFile fp) `catch` handle
+    where
+    handle :: IOException -&gt; IO (Either Message String)
+    handle = return . Left . (&quot;Error: &quot; ++) . show
+</code></pre>
+<p>The function:</p>
+<pre><code class="language-haskell">catch :: IOException e =&gt; IO a -&gt; (e -&gt; IO a) -&gt; IO a
+</code></pre>
+<p>is our &quot;graceful exit&quot; instrument here: given an IO action and a handler function, it will catch any IO exception and apply the handler to it, which will yield a legit <code>IO a</code> value.</p>
+<p>In our case, what we want to do with the exception is:</p>
+<ul>
+<li><code>show</code> it into a <code>String</code> starting with <code>&quot;Error: &quot;</code></li>
+<li>make this message a <code>Left</code> value</li>
+<li><code>return</code> this left value, making it an <code>IO (Either Message String)</code></li>
+</ul>
+<p>In the case when everything is fine with the file and no exception is triggered, <code>readFile</code> will give us an <code>IO String</code> value. We make that value an <code>Either Message String</code> by mapping the <code>Right</code> constructor to it.</p>
+<p>Note that our function returns an <code>IO (Either Message String)</code> value. Why not simply return a <code>Either Message String</code> instead? Because there is no safe way to convert an IO value into a non-IO value. Any function dealing with IO is partial, not total, because IO actions are always prone to some failure condition. If we could compile a function with signature <code>IO a -&gt; a</code> then Haskell's type checker would be much less useful to detect problems in our constructions when dealing IOs, and we would be hiding to ourselves some crucial concern with our program reliability.</p>
+<p><code>IO</code> is an inescapable context. However, the fact that <code>getFileContent</code> returns an <code>IO</code> value should not be a problem because it will be used within the context of an IO action and nowhere else.</p>
+<p>☞ <em>There is actually a function with type <code>IO a -&gt; a</code>. It's called <code>unsafePerformIO</code>. Use it at your own risk</em></p>
+<p>Here's the version 2 of the program. It will examine the values returned by <code>get</code>... functions and branch accordingly instead of halting:</p>
+<pre><code class="language-haskell">program2 :: IO ()
+program2 = do
+    fileName &lt;- getFileNameArg
+    case fileName of
+        Left msg -&gt; putStrLn msg
+        Right fp -&gt; do
+            content &lt;- getFileContent fp
+            case (content &gt;&gt;= readTransactions) of
+                Left msg -&gt; putStrLn msg
+                Right []  -&gt; putStrLn $ &quot;error: no transactions&quot;
+                Right txs -&gt; putStrLn $ report $ summarize txs
+
+main :: IO ()
+main = program2
+</code></pre>
+<p>This program is dealing with failures in a better way:</p>
+<pre><code>$ ghc --make program2.hs
+
+$ program2 transactions.csv
+Equipment, 179.0
+Groceries, 172.0
+Insurance, 38.17
+Investment, 6007.0
+Savings, 500.0
+
+$ program2
+Error: no file name given
+
+$ program2 foo
+Error: foo: openFile: does not exist (No such file or directory)
+
+$ echo &quot;foo,bar&quot; &gt;wrong.csv
+$ program2 wrong.csv
+Error: incorrect CSV format : Foo, bar
+
+$ touch empty.csv
+$ program2 empty.csv
+Error: no transactions
+
+</code></pre>
+<h2 id="3-monadic-actions-as-isolated-contexts"><a class="header" href="#3-monadic-actions-as-isolated-contexts">3. Monadic actions as isolated contexts</a></h2>
+<p>The bind operator (<code>&gt;&gt;=</code>) used in the <code>case .. of</code> instruction:</p>
+<pre><code class="language-haskell">            ...
+            content &lt;- getfilecontent fp
+            case (content &gt;&gt;= readtransactions) of
+                left msg -&gt; putstrln msg
+                right []  -&gt; putstrln $ &quot;error: no transactions&quot;
+                right txs -&gt; putstrln $ unlines $ map show $ summarize txs
+</code></pre>
+<p>can be chained with as many functions of the type <code>a -&gt; Either Message b</code> as we want over the initial value of <code>content</code>. For instance we could add new controls to detect an empty transaction list or to check that no transaction in the list has amount of zero.</p>
+<pre><code class="language-haskell">
+checkNotEmpty :: [Transaction] -&gt; Either Message [Transaction]
+checkNotEmpty []  = Left &quot;Error: no transactions&quot;
+checkNotEmpty txs = Right txs
+
+checkNonZero :: Transaction -&gt; Either Message Transaction
+checkNonZero (Transaction _ 0)
+    = Left &quot;Error: amount equal to zero&quot;
+
+program2 :: IO ()
+program2 = do
+    fileName &lt;- getFileNameArg
+    case fileName of
+        Left msg -&gt; putStrLn msg
+        Right fp -&gt; do
+            content &lt;- getFileContent fp
+            case (content &gt;&gt;= readTransactions
+                          &gt;&gt;= checkNotEmpty
+                          &gt;&gt;= mapM checkNonZero) of
+                Left msg -&gt; putStrLn msg
+                Right txs -&gt; putStrLn $ unlines $ map show $ summarize txs
+</code></pre>
+<p>This chaining of controls could give the impression that we've missed an opportunity to simplify the code of the whole function, which we could have done by equally chaining the values obtained by <code>getFileNameArg</code> and <code>getFileContent</code>. Instead we used explicit <code>case ... of</code> branching.</p>
+<p>Question: Could it be possible to chain <em>all</em> our <code>Either Message a</code> functions like this ?</p>
+<pre><code class="language-haskell">wrong_program2 :: IO () -- won't compile
+wrong_program2 = do
+    case (getFileNameArg &gt;&gt;= getFileContent
+                         &gt;&gt;= readTransactions
+                         &gt;&gt;= checkNotEmpty
+                         &gt;&gt;= mapM checkNonZero) of
+               Left msg -&gt; putStrLn msg
+               Right txs -&gt; putStrLn $ unlines $ map show $ summarize txs
+</code></pre>
+<p>Answer: No. The compiler has no less than 6 complaints about this change to the function. Here's the first one:</p>
+<pre><code>    • Couldn't match type ‘Either Message String’ with ‘[Char]’
+      Expected type: Either Message String -&gt; IO (Either Message String)
+        Actual type: FilePath -&gt; IO (Either Message String)
+        case (getFileNameArg &gt;&gt;= getFileContent
+</code></pre>
+<p>In essence: we cannot chain monadic actions from the <code>IO</code> monad to the <code>Either</code> monad, and vice versa. Since the <code>case ... of</code> is examining a value of type <code>Either Message [Transaction]</code>, the expected type for actions leading to that value is <code>a -&gt; Either Message b</code>. But we are trying to somehow get to that value through actions of type <code>a -&gt; IO b</code>. That can't work.</p>
+<p>We can always bind monadic actions to distinct types through the <strong>same monad</strong>, as these examples with <code>Maybe</code> and <code>IO</code> show:</p>
+<pre><code class="language-haskell">ghci
+&gt; notNull l = if null l then Nothing else Just l
+&gt; notLong l = if length l &gt; 10 then Nothing else Just l
+
+&gt; Just &quot;foo&quot; &gt;&gt;= notNull &gt;&gt;= notLong
+Just &quot;foo&quot;
+
+&gt; Just &quot;&quot; &gt;&gt;= notNull &gt;&gt;= notLong
+Nothing
+
+&gt; Just &quot;this is too long&quot; &gt;&gt;= notNull &gt;&gt;= notLong
+Nothing
+
+&gt; getLine &gt;&gt;= putStrLn
+foo
+foo
+</code></pre>
+<p>but we can never bind monadic actions through different monadic types:</p>
+<pre><code>&gt; getLine &gt;&gt;= notNull
+
+&lt;interactive&gt;:16:13: error:
+    • Couldn't match type ‘Maybe’ with ‘IO’
+      Expected type: String -&gt; IO [Char]
+        Actual type: [Char] -&gt; Maybe [Char]
+    • In the second argument of ‘(&gt;&gt;=)’, namely ‘notNull’
+      In the expression: getLine &gt;&gt;= notNull
+      In an equation for ‘it’: it = getLine &gt;&gt;= notNull
+
+&gt; Just &quot;foo&quot; &gt;&gt;= putStrLn
+
+&lt;interactive&gt;:17:16: error:
+    • Couldn't match type ‘IO’ with ‘Maybe’
+      Expected type: [Char] -&gt; Maybe ()
+        Actual type: String -&gt; IO ()
+    • In the second argument of ‘(&gt;&gt;=)’, namely ‘putStrLn’
+      In the expression: Just &quot;foo&quot; &gt;&gt;= putStrLn
+      In an equation for ‘it’: it = Just &quot;foo&quot; &gt;&gt;= putStrLn
+&gt;
+</code></pre>
+<p>We can always, as in <code>program2</code> chain <code>Either</code> actions <em>inside</em> expressions that are themselves produced inside <code>IO</code>. But we cannot produce one single, simplified chaining as in <em>please, chain all these actions and controls over my input data and signal any failure</em>.</p>
+<p>Where do we go from here?</p>
+<h2 id="4-combining-monads-with-monad-transformers"><a class="header" href="#4-combining-monads-with-monad-transformers">4. Combining Monads with Monad Transformers</a></h2>
+<p>What we need in order to simplify the code that does all the controls and actions is the ability to chain, approximately speaking, <code>Either</code> actions <em>inside</em> the <code>IO</code> monad.</p>
+<p>This is what the <a href="https://hackage.haskell.org/package/transformers-0.5.6.2/docs/Control-Monad-Trans-Except.html"><code>Control.Monad.Trans.Except</code></a> library offers:</p>
+<blockquote>
+<p><strong>Control.Monad.Trans.Except</strong></p>
+<p>This monad transformer extends a monad with the ability to throw exceptions.</p>
+<p>A sequence of actions terminates normally, producing a value, only if none of the actions in the sequence throws an exception. If one throws an exception, the rest of the sequence is skipped and the composite action exits with that exception.</p>
+<pre><code class="language-haskell">newtype ExceptT e m a
+</code></pre>
+<p>A monad transformer that adds exceptions to other monads.</p>
+<p><code>ExceptT</code> constructs a monad parameterized over two things:</p>
+<ul>
+<li><em>e</em> - The exception type.</li>
+<li><em>m</em> - The inner monad.</li>
+</ul>
+<p>The <code>return</code> function yields a computation that produces the given value, while <code>&gt;&gt;=</code> sequences two subcomputations, exiting on the first exception.</p>
+<pre><code class="language-haskell">throwE :: Monad m =&gt; e -&gt; ExceptT e m a
+</code></pre>
+<p>Signal an exception value <em>e</em>.</p>
+<pre><code class="language-haskell">runExceptT (throwE e) = return (Left e)
+throwE e &gt;&gt;= m = throwE e
+</code></pre>
+</blockquote>
+<h3 id="pure-values-and-input-values"><a class="header" href="#pure-values-and-input-values">Pure values and input values</a></h3>
+<p>Let's experiment on <em>ghci</em>. We start with importing our program, and the module.</p>
+<pre><code class="language-haskell">&gt; import Program2.hs
+&gt; import Control.Monad.Trans.Except
+</code></pre>
+<p>Let's try to create a pure <code>ExecptT Message IO [Transaction]</code> value using the <code>ExceptT</code> constructor:</p>
+<pre><code class="language-haskell">&gt; value = ExceptT $ return $ Right $ [Transaction (Category &quot;Groceries&quot;) 42.0]
+
+&gt; :type value
+value :: Monad m =&gt; ExceptT e m [Transaction]
+</code></pre>
+<p>Now let's create a function to get a list of transactions from a file. That amounts to:</p>
+<ul>
+<li>reading the file and putting its content in an <code>IO String</code></li>
+<li>applying <code>readTransactions</code> to this value, which gets us a <code>IO (Either Message String)</code></li>
+<li>wrapping this into an <code>ExceptT</code> value</li>
+</ul>
+<pre><code class="language-haskell">&gt; fromFile = ExceptT . fmap readTransactions . readFile
+
+&gt; :type fromFile
+fromFile :: FilePath -&gt; ExceptT Message IO [Transaction]
+</code></pre>
+<p>This seems promising: we get the same result type whether our value comes from a constant or from reading a file!</p>
+<p>Extracting the value from an <code>ExceptT</code> context is done via <code>runExceptT</code>:</p>
+<pre><code class="language-haskell">&gt; runExceptT value
+Right [Transaction {transactionCategory = Category {categoryLabel = &quot;Groceries&quot;}, transactionAmount = 42.0}]
+
+&gt; runExceptT $ fromFile &quot;transactions.csv&quot;
+Right [Transaction {transactionCategory = Category {categoryLabel = &quot;Groceries&quot;}, transactionAmount = 100.0}
+. . .
+,Transaction {transactionCategory = Category {categoryLabel = &quot;Equipment&quot;}, transactionAmount = 179.0}]
+</code></pre>
+<h3 id="exceptions-and-interactions"><a class="header" href="#exceptions-and-interactions">Exceptions and interactions</a></h3>
+<p>Naturally our function doesn't handle exceptions yet:</p>
+<pre><code class="language-haskell">&gt; runExceptT $ fromFile &quot;foo&quot;
+*** Exception: foo: openFile: does not exist (No such file or directory)
+</code></pre>
+<p>If we want it to return a <code>Left</code> value, we have to provide a handler:</p>
+<pre><code class="language-haskell">&gt; handler = return . Left . show :: (IOException -&gt; IO (Either Message [Transaction]))
+&gt; fromFile fp = ExceptT $ fmap readTransactions (readFile fp) `catch` handler
+
+&gt; runExceptT $ fromFile &quot;foo&quot;
+Left &quot;foo: openFile: does not exist (No such file or directory)&quot;
+</code></pre>
+<p>And now our function handles exceptions correctly.</p>
+<p>Another case where we want to have <code>IO</code> and <code>Either</code> working together seamlessly is about extracting the CSV file name from the arguments provided on the command line, returning a <code>Left</code> if no argument was given. Could we instead prompt the user for a file name?</p>
+<p>Let's write a prompt function:</p>
+<pre><code class="language-haskell">&gt; promptForFileName = putStrLn &quot;please enter a file name:&quot; &gt;&gt; getLine
+</code></pre>
+<p>when the empty list pattern is met, we prompt for a file name, in other cases, we extract the first argument from the list</p>
+<pre><code class="language-haskell">&gt; :{
+| getFileName :: [String] -&gt; ExceptT Message IO FilePath
+| getFileName []      = ExceptT $ fmap Right $ prompt
+| getFileName (arg:_) = ExceptT $ return $ Right arg
+| :}
+
+&gt; runExceptT $ getFileName [&quot;transactions.csv&quot;]
+Right &quot;transactions.csv&quot;
+
+&gt; runExceptT $ getFileName []
+please enter a file name:
+transactions.csv
+Right &quot;transactions.csv&quot;
+</code></pre>
+<p>It works! In one case we convert an <code>IO String</code> into an <code>IO (Either Message String)</code> and then nest that value into an <code>ExceptT</code>. In the other case we nest a <code>Right</code> value into <code>IO</code> (getting also an <code>IO (Either Message String)</code>) and also nest that value into an <code>ExceptT</code>.</p>
+<p>But all this converting is tedious. First, since <code>ExceptT</code> is a monad, it offers a <code>return</code> function. Let' use it.</p>
+<pre><code class="language-haskell">&gt; :{
+| getFileName :: [String] -&gt; ExceptT Message IO FilePath
+| getFileName []      = ExceptT $ fmap Right $ prompt
+| getFileName (arg:_) = return arg
+| :}
+</code></pre>
+<p>Secondly, the combination <code>ExceptT . fmap Right</code> can be done using a general function found in <code>Control.Monad.Trans.Class</code>:</p>
+<blockquote>
+<pre><code class="language-haskell">lift :: Monad m =&gt; m a -&gt; t m a
+</code></pre>
+<p>Lift a computation from the argument monad to the constructed monad.</p>
+</blockquote>
+<pre><code class="language-haskell">import Control.Monad.Trans.Class
+&gt; :{
+| getFileName :: [String] -&gt; ExceptT Message IO FilePath
+| getFileName []      = lift prompt
+| getFileName (arg:_) = return arg
+| :}
+</code></pre>
+<p>What we have seen so far:</p>
+<ul>
+<li>we can compose together the <code>Either</code> monad with the <code>IO</code> monad, using the <code>ExceptT</code> monad transformer</li>
+<li>we hold values in <code>ExceptT</code> and extract them when needed with <code>runExceptT</code>, yielding a <code>Right</code> or <code>Left</code> value</li>
+<li>we chain monadic functions on these values with the bind (<code>&gt;&gt;=</code>) operation just like we would with <code>Either</code> values</li>
+<li>when a function leads to failure the chaining is cut short and we get an exception value: extracting it will yield a <code>Left</code></li>
+<li>we also obtain values from IO operations <code>lift</code>ing these operations into the <code>ExceptT</code> monad</li>
+<li>thanks to exception <code>catch</code>ing when a failure occurs on the IO operation we also get an exception value</li>
+</ul>
+<h2 id="program-3-a-chain-of-actions-that-can-fail-gracefully"><a class="header" href="#program-3-a-chain-of-actions-that-can-fail-gracefully">Program #3: A chain of actions that can fail gracefully</a></h2>
+<p>Let's integrate what we learned into our program.</p>
+<pre><code class="language-haskell">import Control.Monad.Trans.Except ( ExceptT (..)
+                                  , runExceptT
+                                  , throwE
+                                  )
+
+import Control.Monad.Trans.Class     ( lift )
+</code></pre>
+<p><code>Domain</code> is the type of values possibly acquired from IO operations, and that can indicate failure:</p>
+<pre><code class="language-haskell">type Domain = ExceptT Message IO
+</code></pre>
+<p>We can rewrite our conversion and control functions, using <code>throwE</code> instead of <code>Left</code>:</p>
+<pre><code class="language-haskell">readTransaction :: String -&gt; Domain Transaction
+readTransaction s =
+    case reads s of
+      []        -&gt; throwE (&quot;incorrect CSV format : &quot; ++ s)
+      ((t,_):_) -&gt; return t
+
+readTransactions :: String -&gt; Domain [Transaction]
+readTransactions = mapM readTransaction . lines
+
+checkNotEmpty :: [Transaction] -&gt; Domain [Transaction]
+checkNotEmpty []  = throwE &quot;no transactions&quot;
+checkNotEmpty txs = return txs
+
+checkNonZero :: Transaction -&gt; Domain Transaction
+checkNonZero (Transaction _ 0) = throwE &quot;amount equal to zero&quot;
+checkNonZero tx                 = return tx
+</code></pre>
+<p>Acquiring the CSV file name will follow the logic we experimented on <em>ghci</em>:</p>
+<pre><code class="language-haskell">getFileNameArg :: Domain FilePath
+getFileNameArg = do
+    args &lt;- lift getArgs
+    if null args then lift promptForFileName
+                 else return (args !! 0)
+                     where
+    promptForFileName :: IO String
+    promptForFileName = putStrLn &quot;please enter a file name:&quot; &gt;&gt; getLine
+</code></pre>
+<p>Dealing with IO exceptions implies using and wrapping the <code>catch</code> expression into the <code>ExceptT</code> monad:</p>
+<pre><code class="language-haskell">getFileContent :: FilePath -&gt; Domain String
+getFileContent fp = ExceptT $ (readFileE fp) `catch` handleE
+    where
+    readFileE :: FilePath -&gt; IO (Either Message String)
+    readFileE filePath =  Right &lt;$&gt; readFile filePath
+
+    handleE :: IOException -&gt; IO (Either Message String)
+    handleE = return . Left . show
+</code></pre>
+<p>Note that we use the <code>&lt;$&gt;</code> (an infix shortcut for <code>fmap</code>) since we need to apply the <code>Right</code> function into the IO value that <code>readFile</code> acquired.</p>
+<h3 id="chaining-all-of-this-together"><a class="header" href="#chaining-all-of-this-together">Chaining all of this together</a></h3>
+<p>Now we can chain all these acquiring and controlling functions into a single one:</p>
+<pre><code class="language-haskell">getTransactions :: Domain [Transaction]
+getTransactions = do
+    filePath     &lt;- getFileNameArg
+    content      &lt;- getFileContent filePath
+    unchecked    &lt;- readTransactions content
+    notEmpty     &lt;- checkNotEmpty unchecked
+    transactions &lt;- mapM checkNonZero notEmpty
+    return $ transactions
+</code></pre>
+<p>Of course, using variables and left arrows is one way to make the chaining of action explicit. Another way is to use the bind operator:</p>
+<pre><code class="language-haskell">getTransactions :: Domain [Transaction]
+getTransactions  = getFileNameArg
+               &gt;&gt;= getFileContent
+               &gt;&gt;= readTransactions
+               &gt;&gt;= checkNotEmpty 
+               &gt;&gt;= mapM checkNonZero
+</code></pre>
+<p>Finally, we need a way to output the result of our program, be it a failure or a valid list of summary lines:</p>
+<pre><code class="language-haskell">report :: Either Message [SummaryLine] -&gt; String
+report (Left msg)   = &quot;Error: &quot; ++ msg
+report (Right sums) = unlines $ map showSummaryLine sums
+</code></pre>
+<p>As usual the main program will get the transactions, summarize them, and print the report:</p>
+<pre><code class="language-haskell">program3 :: IO ()
+program3 = do
+    transactions &lt;- runExceptT getTransactions
+    putStrLn $ report $ summarize &lt;$&gt; transactions
+
+main :: IO ()
+main = program3
+</code></pre>
+<p>The operator <code>&lt;$&gt;</code> is used instead of <code>$</code> in  <code>summarize &lt;$&gt; transactions</code> since this variable is bound to an <code>Either Message [Transaction]</code> value. We have to map <code>summarize</code> instead of just applying it.</p>
+<pre><code>$ ghc --make program3.hs
+$ program3
+please enter a file name:
+transactions.csv
+Equipment, 211.0
+Groceries, 172.0
+Insurance, 38.17
+Savings, 500.0
+</code></pre>
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p>In this blog post, we went from a naïve haskell program doing IOs, to a less naïve implementation that deals with exceptions and failures, while trying to keep the program flow simple and the amount of boiler plate to a minimum. I hope you enjoyed it and learned from it. I would greatly appreciate feedback! You can email me at cthibauttof@gmail.com or contact me on Twitter: @ToF_.</p>
+<p>The program can be found on <a href="https://github.com/ToF-/Domain">github</a></p>
+<p>Enjoy!</p>
+<p><em>THANK YOU Andrea Chiou for helping me to improve my writing. THANK YOU Arnaud Bailly for making Haskell easier to learn for me.</em></p>
+<div class="datetime" style="text-align: center; color: gray; font-style: italic; font-size: 90%;">Unknown date format</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2020-03-11-Diamond-Kata-PBT-TDD.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="2020-07-22-What-Problem-Are-You-Solving-Together.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="2020-03-11-Diamond-Kata-PBT-TDD.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="2020-07-22-What-Problem-Are-You-Solving-Together.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
