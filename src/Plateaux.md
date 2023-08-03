@@ -1,0 +1,11 @@
+# Plateaux
+- [Le Projet de Dorian Gray](./2023-04-02-PL-1.md)
+- [L'idéal ?](./2023-04-02-PL-2.md)
+- [Fatalités ?](./2023-04-02-PL-3.md)
+- [Ralentir : Crise](./2023-04-02-PL-4.md)
+- [Nouveaux Plateaux 🌄](./2023-04-02-PL-5.md)
+- [Sens Partagé](./2023-04-02-PL-6.md)
+- [État de l'Art](./2023-04-02-PL-7.md)
+- [Plateformes](./2023-04-02-PL-8.md)
+- [Amélioration Continue](./2023-04-02-PL-9.md)
+- [Engagements](./2023-04-02-PL-10.md)
