@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Défense vs Exploration (4) - ToF&#x27;s Blog</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="posts linked-in et autres">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="DetteTechnique.html"><strong aria-hidden="true">2.</strong> Dette Technique</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2023-03-11-DT-1.html"><strong aria-hidden="true">2.1.</strong> La Dette Technique, qu'est-ce que c'est ?</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-2.html"><strong aria-hidden="true">2.2.</strong> Chiffrer la Dette ?</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-3.html"><strong aria-hidden="true">2.3.</strong> Une Traduction Incohérente</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-4.html"><strong aria-hidden="true">2.4.</strong> Au Cœur du Processus</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-5.html"><strong aria-hidden="true">2.5.</strong> Le Rôle du Management</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-6.html"><strong aria-hidden="true">2.6.</strong> Un État de l'Art Désaligné</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-7.html"><strong aria-hidden="true">2.7.</strong> Pratiques de Prévention</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-8.html"><strong aria-hidden="true">2.8.</strong> Le Rôle du Product Owner</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-9.html"><strong aria-hidden="true">2.9.</strong> Un Levier de Vitesse</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-10.html"><strong aria-hidden="true">2.10.</strong> Retour d'Information</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-11.html"><strong aria-hidden="true">2.11.</strong> Une Facture Imaginaire</a></li><li class="chapter-item expanded "><a href="2023-03-11-DT-12.html"><strong aria-hidden="true">2.12.</strong> Mission Failed ?</a></li></ol></li><li class="chapter-item expanded "><a href="Coherence.html"><strong aria-hidden="true">3.</strong> Cohérence</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2023-03-12-CO-0.html"><strong aria-hidden="true">3.1.</strong> Quel Problème Essayons Nous de Résoudre Ensemble ?</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-1.html"><strong aria-hidden="true">3.2.</strong> À la Recherche de la Cohérence</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-2.html"><strong aria-hidden="true">3.3.</strong> 3 Sources sur la Dette Technique</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-3.html"><strong aria-hidden="true">3.4.</strong> Déspécialiser</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-4.html"><strong aria-hidden="true">3.5.</strong> État de l'Art et Cohérence</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-5.html"><strong aria-hidden="true">3.6.</strong> Outillage</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-6.html"><strong aria-hidden="true">3.7.</strong> État de l'Art, Cohérence et Dette Technique</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-7.html"><strong aria-hidden="true">3.8.</strong> Cohérence Perdue</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-8.html"><strong aria-hidden="true">3.9.</strong> Métaphores</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-9.html"><strong aria-hidden="true">3.10.</strong> Factory</a></li><li class="chapter-item expanded "><a href="2023-03-12-CO-10.html"><strong aria-hidden="true">3.11.</strong> Conversations, Observations</a></li></ol></li><li class="chapter-item expanded "><a href="SortirDesRonces.html"><strong aria-hidden="true">4.</strong> Sortir des Ronces</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2023-03-18-OW-0.html"><strong aria-hidden="true">4.1.</strong> Contre-Effet de Levier</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-1.html"><strong aria-hidden="true">4.2.</strong> Qualité, Coûts, Délais</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-2.html"><strong aria-hidden="true">4.3.</strong> Sortir des Ronces</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-3.html"><strong aria-hidden="true">4.4.</strong> Prérequis</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-4.html"><strong aria-hidden="true">4.5.</strong> Pro Tips</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-5.html"><strong aria-hidden="true">4.6.</strong> Construction de Théorie</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-6.html"><strong aria-hidden="true">4.7.</strong> Lit de Procuste</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-7.html"><strong aria-hidden="true">4.8.</strong> Boule de Cristal</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-8.html"><strong aria-hidden="true">4.9.</strong> Crise de Croissance</a></li><li class="chapter-item expanded "><a href="2023-03-18-OW-9.html"><strong aria-hidden="true">4.10.</strong> Sens Partagé</a></li></ol></li><li class="chapter-item expanded "><a href="ProductOwning.html"><strong aria-hidden="true">5.</strong> Product Owning</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2023-04-01-PO-0.html"><strong aria-hidden="true">5.1.</strong> Nouveau! 📯</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-1.html"><strong aria-hidden="true">5.2.</strong> Jonglerie</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-2.html"><strong aria-hidden="true">5.3.</strong> conflit d'idées</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-3.html"><strong aria-hidden="true">5.4.</strong> Zombies</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-4.html"><strong aria-hidden="true">5.5.</strong> 🏷 Patterns et Conflits ⚔️</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-5.html"><strong aria-hidden="true">5.6.</strong> Horizons Bouchés, Nuages de Conflits</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-6.html"><strong aria-hidden="true">5.7.</strong> Expressions de Besoins</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-7.html"><strong aria-hidden="true">5.8.</strong> Examiner des conflits 🪑 🕳 🔦</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-8.html"><strong aria-hidden="true">5.9.</strong> Scrum à la Rescousse 🕳 🚑</a></li><li class="chapter-item expanded "><a href="2023-04-01-PO-9.html"><strong aria-hidden="true">5.10.</strong> Ce n'est pas une question de rôle</a></li></ol></li><li class="chapter-item expanded "><a href="Plateaux.html"><strong aria-hidden="true">6.</strong> Plateaux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2023-04-02-PL-1.html"><strong aria-hidden="true">6.1.</strong> Le Projet de Dorian Gray</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-2.html"><strong aria-hidden="true">6.2.</strong> L'idéal ?</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-3.html"><strong aria-hidden="true">6.3.</strong> Fatalités ?</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-4.html"><strong aria-hidden="true">6.4.</strong> Ralentir : Crise</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-5.html"><strong aria-hidden="true">6.5.</strong> Nouveaux Plateaux 🌄</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-6.html"><strong aria-hidden="true">6.6.</strong> Sens Partagé</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-7.html"><strong aria-hidden="true">6.7.</strong> État de l'Art</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-8.html"><strong aria-hidden="true">6.8.</strong> Plateformes</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-9.html"><strong aria-hidden="true">6.9.</strong> Amélioration Continue</a></li><li class="chapter-item expanded "><a href="2023-04-02-PL-10.html"><strong aria-hidden="true">6.10.</strong> Engagements</a></li></ol></li><li class="chapter-item expanded "><a href="Producteurs.html"><strong aria-hidden="true">7.</strong> Producteurs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2023-04-16-PR-1.html"><strong aria-hidden="true">7.1.</strong> Cavalcade</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-2.html"><strong aria-hidden="true">7.2.</strong> Travailler tard avant d'être remplacé</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-3.html"><strong aria-hidden="true">7.3.</strong> J'ai un mystère</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-4.html"><strong aria-hidden="true">7.4.</strong> Producteurs de Code</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-5.html"><strong aria-hidden="true">7.5.</strong> Software Factory</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-6.html"><strong aria-hidden="true">7.6.</strong> Etat de l'Art et Nouveauté</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-7.html"><strong aria-hidden="true">7.7.</strong> Nouvelles Conversations</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-8.html"><strong aria-hidden="true">7.8.</strong> Productivité</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-9.html"><strong aria-hidden="true">7.9.</strong> Amélioration Continue</a></li><li class="chapter-item expanded "><a href="2023-04-16-PR-10.html"><strong aria-hidden="true">7.10.</strong> Soirée Meetup</a></li></ol></li><li class="chapter-item expanded "><a href="Regulations.html"><strong aria-hidden="true">8.</strong> Régulation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2023-04-29-RE-1.html"><strong aria-hidden="true">8.1.</strong> Interactions</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-2.html"><strong aria-hidden="true">8.2.</strong> Prévenir &gt; Guérir</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-3.html"><strong aria-hidden="true">8.3.</strong> Crash Fatal</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-4.html"><strong aria-hidden="true">8.4.</strong> Cliquets</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-5.html"><strong aria-hidden="true">8.5.</strong> Mégapole</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-6.html"><strong aria-hidden="true">8.6.</strong> Des usines et du sable</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-7.html"><strong aria-hidden="true">8.7.</strong> Apprendre et s'adapter</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-8.html"><strong aria-hidden="true">8.8.</strong> Sprints à Rallonges</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-9.html"><strong aria-hidden="true">8.9.</strong> Mon Indicateur de Productivité</a></li><li class="chapter-item expanded "><a href="2023-04-29-RE-10.html"><strong aria-hidden="true">8.10.</strong> Résolution</a></li></ol></li><li class="chapter-item expanded "><a href="Prevention.html"><strong aria-hidden="true">9.</strong> Prévention</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2023-05-01-PV-0.html"><strong aria-hidden="true">9.1.</strong> Quizz</a></li><li class="chapter-item expanded "><a href="2023-05-02-PV-1.html"><strong aria-hidden="true">9.2.</strong> Provisions</a></li><li class="chapter-item expanded "><a href="2023-05-03-PV-2.html"><strong aria-hidden="true">9.3.</strong> Double Boucle</a></li><li class="chapter-item expanded "><a href="2023-05-04-PV-3.html"><strong aria-hidden="true">9.4.</strong> Le Standard</a></li><li class="chapter-item expanded "><a href="2023-05-05-PV-4.html"><strong aria-hidden="true">9.5.</strong> Breakpoints</a></li><li class="chapter-item expanded "><a href="2023-05-08-PV-5.html"><strong aria-hidden="true">9.6.</strong> Couloirs</a></li><li class="chapter-item expanded "><a href="2023-05-09-PV-6.html"><strong aria-hidden="true">9.7.</strong> Détrompeurs</a></li><li class="chapter-item expanded "><a href="2023-05-10-PV-7.html"><strong aria-hidden="true">9.8.</strong> Patinette</a></li><li class="chapter-item expanded "><a href="2023-05-11-PV-8.html"><strong aria-hidden="true">9.9.</strong> Rollers et Scooters</a></li><li class="chapter-item expanded "><a href="2023-05-12-PV-9.html"><strong aria-hidden="true">9.10.</strong> Artisanat</a></li></ol></li><li class="chapter-item expanded "><a href="Standard.html"><strong aria-hidden="true">10.</strong> Standard</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2023-05-15-ST-0.html"><strong aria-hidden="true">10.1.</strong> Revue et Standard</a></li><li class="chapter-item expanded "><a href="2023-05-16-ST-1.html"><strong aria-hidden="true">10.2.</strong> Sicob</a></li><li class="chapter-item expanded "><a href="2023-05-17-ST-2.html"><strong aria-hidden="true">10.3.</strong> Commentaires</a></li><li class="chapter-item expanded "><a href="2023-05-18-ST-3.html"><strong aria-hidden="true">10.4.</strong> Quinconce</a></li><li class="chapter-item expanded "><a href="2023-05-22-ST-4.html"><strong aria-hidden="true">10.5.</strong> Plus Moins Intéressant</a></li><li class="chapter-item expanded "><a href="2023-05-23-ST-5.html"><strong aria-hidden="true">10.6.</strong> Recadrage</a></li><li class="chapter-item expanded "><a href="2023-05-24-ST-6.html"><strong aria-hidden="true">10.7.</strong> Foire Aux Questions</a></li><li class="chapter-item expanded "><a href="2023-05-25-ST-7.html"><strong aria-hidden="true">10.8.</strong> Auto-Prescription</a></li></ol></li><li class="chapter-item expanded "><a href="Transmission.html"><strong aria-hidden="true">11.</strong> Transmission</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2023-05-29-TR-0.html"><strong aria-hidden="true">11.1.</strong> Transmission</a></li><li class="chapter-item expanded "><a href="2023-05-30-TR-1.html"><strong aria-hidden="true">11.2.</strong> Bras de Mer et Bras-Cassés</a></li><li class="chapter-item expanded "><a href="2023-06-03-TR-2.html"><strong aria-hidden="true">11.3.</strong> Où apprendre et s'améliorer ?</a></li><li class="chapter-item expanded "><a href="2023-06-05-TR-3.html"><strong aria-hidden="true">11.4.</strong> Transmissions</a></li><li class="chapter-item expanded "><a href="2023-06-07-TR-4.html"><strong aria-hidden="true">11.5.</strong> Auto-Formation</a></li><li class="chapter-item expanded "><a href="2023-06-07-TR-5.html"><strong aria-hidden="true">11.6.</strong> Apprentissage, Performance</a></li></ol></li><li class="chapter-item expanded "><a href="Systemes.html"><strong aria-hidden="true">12.</strong> Systèmes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2023-06-26-SY-0.html"><strong aria-hidden="true">12.1.</strong> Diagrammes et Modèles 1</a></li><li class="chapter-item expanded "><a href="2023-06-27-SY-1.html"><strong aria-hidden="true">12.2.</strong> Diagrammes et Modèles 2</a></li><li class="chapter-item expanded "><a href="2023-06-28-SY-2.html"><strong aria-hidden="true">12.3.</strong> Diagrammes et Modèles 3</a></li><li class="chapter-item expanded "><a href="2023-06-29-SY-3.html"><strong aria-hidden="true">12.4.</strong> Diagrammes et Modèles 4</a></li><li class="chapter-item expanded "><a href="2023-06-30-SY-4.html"><strong aria-hidden="true">12.5.</strong> Diagrammes et Modèles 5</a></li><li class="chapter-item expanded "><a href="2023-07-03-SY-5.html"><strong aria-hidden="true">12.6.</strong> Diagrammes et Modèles 6</a></li><li class="chapter-item expanded "><a href="2023-07-04-SY-6.html"><strong aria-hidden="true">12.7.</strong> Diagrammes et Modèles 7</a></li><li class="chapter-item expanded "><a href="2023-07-05-SY-7.html"><strong aria-hidden="true">12.8.</strong> Diagrammes et Modèles 8</a></li><li class="chapter-item expanded "><a href="2023-07-06-SY-8.html"><strong aria-hidden="true">12.9.</strong> Diagrammes et Modèles 9</a></li><li class="chapter-item expanded "><a href="2023-07-09-SY-9.html"><strong aria-hidden="true">12.10.</strong> Diagrammes et Modèles 10</a></li></ol></li><li class="chapter-item expanded "><a href="Test.html"><strong aria-hidden="true">13.</strong> Test</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2023-09-06-TS-0.html"><strong aria-hidden="true">13.1.</strong> Et si on parlait tests ?</a></li><li class="chapter-item expanded "><a href="2023-09-06-TS-1.html"><strong aria-hidden="true">13.2.</strong> Stratégies</a></li><li class="chapter-item expanded "><a href="2023-09-25-TS-2.html"><strong aria-hidden="true">13.3.</strong> Défense vs Exploration (1)</a></li><li class="chapter-item expanded "><a href="2023-09-26-TS-3.html"><strong aria-hidden="true">13.4.</strong> Défense vs Exploration (2)</a></li><li class="chapter-item expanded "><a href="2023-09-27-TS-4.html"><strong aria-hidden="true">13.5.</strong> Défense vs Exploration (3)</a></li><li class="chapter-item expanded "><a href="2023-09-28-TS-5.html" class="active"><strong aria-hidden="true">13.6.</strong> Défense vs Exploration (4)</a></li><li class="chapter-item expanded "><a href="2023-09-29-TS-6.html"><strong aria-hidden="true">13.7.</strong> Jeu Quiz</a></li><li class="chapter-item expanded "><a href="2023-09-29-TS-7.html"><strong aria-hidden="true">13.8.</strong> Rationalisations</a></li><li class="chapter-item expanded "><a href="2023-09-30-TS-8.html"><strong aria-hidden="true">13.9.</strong> Préjugés</a></li><li class="chapter-item expanded "><a href="2023-10-01-TS-9.html"><strong aria-hidden="true">13.10.</strong> Testeur et Programmeur</a></li><li class="chapter-item expanded "><a href="2023-10-02-TS-10.html"><strong aria-hidden="true">13.11.</strong> No Product</a></li></ol></li><li class="chapter-item expanded "><a href="Code.html"><strong aria-hidden="true">14.</strong> Code</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2020-03-11-Diamond-Kata-PBT-TDD.html"><strong aria-hidden="true">14.1.</strong> The Diamond Kata: a mix of TDD and PBT</a></li><li class="chapter-item expanded "><a href="2020-05-17-Scratching-the-surface.html"><strong aria-hidden="true">14.2.</strong> Scratching the surface of Monad Transformers</a></li><li class="chapter-item expanded "><a href="2020-07-22-What-Problem-Are-You-Solving-Together.html"><strong aria-hidden="true">14.3.</strong> What Problem Are You Solving Together?</a></li><li class="chapter-item expanded "><a href="2020-08-24-Coding-Katas-And-Problem-Solving.html"><strong aria-hidden="true">14.4.</strong> Coding Katas and Problem Solving</a></li><li class="chapter-item expanded "><a href="2020-09-11-Forth-Bowling-Score.html"><strong aria-hidden="true">14.5.</strong> The Bowling Score Kata</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">ToF&#x27;s Blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>— Ah ! Cette fois-ci on a à la fois les concepteurs, et les chasseurs de bugs.<br />
+— Oui. Appellons-les les &quot;défenseurs&quot; et les &quot;explorateurs&quot;.<br />
+— À lire cette carte on dirait que dans leurs activités respectives ils sont parfaitement isolés les uns des autres.
+<img src="/images/defense-exploration-4.png" alt="défense vs exploration (4)" />
+— C'est l'impression que donne ce pentagone bleu, mais c'est le contraire qui est vrai : les explorateurs fournissent sans cesse aux défenseurs des informations cruciales à propos du système, et réciproquement.<br />
+— Mais qui est responsable de sa qualité, au final ?<br />
+— Les deux acteurs sont responsables, et contributeurs.<br />
+— Il y a donc une phase de &quot;build&quot; et une phase de &quot;test&quot; ?<br />
+— Il y a plutôt deux activités menées parallèlement et en complément l'une de l'autre : les défenseurs conçoivent, spécifient, implémentent et vérifient les comportements de l'application. Les explorateurs, eux, recherchent activement des problèmes possibles avec l'application, dont les défenseurs n'auraient pas encore conscience.<br />
+— Je vois. Les défenseurs construisent des défenses. Les explorateurs vont au delà des défenses et cherchent les menaces qui ont échappé à la sagacité des défenseurs.<br />
+— Voilà.<br />
+— Pourquoi deux rôles ? Pourquoi les défenseurs ne deviendraient-ils pas des explorateurs à l'occasion ?<br />
+— Individuellement, c'est parfaitement possible, il suffit que l'organisation l'encourage.<br />
+— Je veux dire : la plupart des personnes que je connais et qui savent concevoir et coder un logiciel, seraient également capables, je pense, de tester ce logiciel de manière exploratoire.<br />
+— Peut-être. Mais mets-toi un moment à la place de l'organisation, du management. Comment tu établis que des développeurs ont bien fait leur travail ?<br />
+— S'ils ont livré dans les délais, un logiciel fiable, répondant au besoin, et du code facile à maintenir.<br />
+— Et comment est-ce que tu établis que des testeurs ont bien fait leur travail ?<br />
+— Je dirais : s'ils ont trouvé et signalé rapidement les problèmes les plus critiques ?<br />
+— Voilà. Le management peut exercer une pression, ou une incitation, qui encouragerait à la fois la tenue des délais et la ténacité à rechercher les menaces à la valeur. Sur une équipe, c'est assez simple. Sur un individu, c'est problématique.<br />
+— Donc, en résumé, qu'est-ce que tu préconises, comme stratégie de tests ?<br />
+— En bref :</p>
+<p>1️⃣  Si tu veux créer et faire grandir un logiciel, tu dois à la fois défendre et explorer. Il te faut de bons concepteurs et de bon testeurs.</p>
+<p>2️⃣  Les personnes qui conçoivent et construisent le système sont les mieux à même de le défendre: en écrivant des tests.</p>
+<p>3️⃣  Les explorateurs/testeurs ne peuvent travailler efficacement que si le système a des défenses.</p>
+<p>— Deux rôles pour assurer la qualité ça complique quand même un peu les choses, tu ne crois pas ?<br />
+— Ça les complique, mais pas autant que des nuées de bugs en production.</p>
+<p><a href="https://www.linkedin.com/posts/christophe-thibaut-35b4657_ah-cette-fois-ci-on-a-%C3%A0-la-fois-les-concepteurs-activity-7113047094688395264-JqzX?utm_source=share&amp;utm_medium=member_desktop">publié sur Linked In le 28/09/2023</a></p>
+<div class="datetime" style="text-align: center; color: gray; font-style: italic; font-size: 90%;">Unknown date format</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2023-09-27-TS-4.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="2023-09-29-TS-6.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="2023-09-27-TS-4.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="2023-09-29-TS-6.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
